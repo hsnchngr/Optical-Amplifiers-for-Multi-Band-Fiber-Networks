@@ -1,0 +1,16 @@
+{
+  "card_id": "EDFA-GD91-T2",
+  "schema_version": "1.0",
+  "title": "Erbium-doped fiber of the spectral model of Giles and Desurvire (1991), Table II fiber (alumino-silicate)",
+  "model": "Not used by any reference model of this review. Stored only to document the parameter-mixing example of Section 5.2 (Figure 10d), in which this value was combined by mistake with card EDFA-GD91-T1.",
+  "device": {"type": "EDF", "host": "alumino-silicate glass (source, Sec. V)", "transition": "4I13/2 <-> 4I15/2"},
+  "reference_plane": "not applicable (single scalar entry)",
+  "notes": "The source describes two different fibers: the high-efficiency fiber of its spatial model (Table I, Figs. 4-5; card EDFA-GD91-T1) and the fiber of its spectral model (Table II, Figs. 6-7), which the source describes as having a higher pump threshold. Category 'measured' follows the convention of card EDFA-GD91-T1: the value is reported by the source for this fiber; whether it was measured or derived in the source is to be confirmed in [41].",
+  "entries": {
+    "xi": {"value": 4.2e15, "unit": "1/(m s)", "symbol": "zeta", "category": "measured",
+      "source": {"ref": "[41]", "locator": "Table II"},
+      "applies_to": "Table II fiber of [41] (spectral model, Figs. 6 and 7 of the source); NOT the Table I fiber of card EDFA-GD91-T1, for which the source gives 1.5e15 (Sec. VI)",
+      "verification": {"level": "V1", "note": "value and unit checked against a text (OCR) copy of the source; the authors confirm the table column in the version of record"}}
+  },
+  "used_by": ["fig_sensitivity (parameter-mixing example, Figure 10d)"]
+}
