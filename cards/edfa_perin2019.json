@@ -1,0 +1,384 @@
+{
+  "card_id": "EDFA-PERIN2019",
+  "schema_version": "1.0",
+  "title": "Single-stage, 980-nm-pumped C-band EDFA of Perin et al. (2019), ref. [124]",
+  "model": "Spectrally resolved Giles-Desurvire model with forward and backward ASE (end-to-end case study, Section 5.7)",
+  "device": {
+    "type": "EDF",
+    "host": "Er-doped silica (commercial C-band fiber, host composition not stated in the source)",
+    "transition": "4I13/2 <-> 4I15/2"
+  },
+  "reference_plane": "as reported by the source; component losses between the fiber ends and the measurement ports are not stated and must be confirmed",
+  "notes": "Spectral coefficients digitized from the vector graphics of Fig. 7 of arXiv:1803.07905 (data/perin2019_giles_coefficients.csv); scalar values read from the text of the arXiv version. Before publication the authors confirm every value against the journal version of record (J. Lightwave Technol. 37(9), 2076-2085, 2019).",
+  "entries": {
+    "L": {
+      "value": 8.0,
+      "unit": "m",
+      "symbol": "L",
+      "category": "measured",
+      "source": {
+        "ref": "[124]",
+        "locator": "Appendix A and Fig. 7 caption (arXiv:1803.07905v3)"
+      },
+      "applies_to": "length of the Er-doped fiber ('a single 8-m-long EDF')",
+      "verification": {
+        "level": "V1",
+        "note": "value and unit confirmed against arXiv:1803.07905v3 on 2026-11-17; version of record not checked"
+      },
+      "uncertainty": {
+        "value": 0.01,
+        "unit": "relative",
+        "kind": "assumed"
+      }
+    },
+    "lambda_p": {
+      "value": 980.0,
+      "unit": "nm",
+      "symbol": "lambda_p",
+      "category": "measured",
+      "source": {
+        "ref": "[124]",
+        "locator": "Appendix A and Fig. 7 caption (arXiv:1803.07905v3)"
+      },
+      "applies_to": "forward pump wavelength",
+      "verification": {
+        "level": "V1"
+      },
+      "note": "the source states a forward pump 'near 980 nm'; the exact wavelength is not given"
+    },
+    "alpha_p": {
+      "value": 0.96,
+      "unit": "1/m",
+      "symbol": "alpha(980)",
+      "category": "measured",
+      "source": {
+        "ref": "[124]",
+        "locator": "Appendix A and Fig. 7 caption (arXiv:1803.07905v3)"
+      },
+      "applies_to": "absorption coefficient at the pump wavelength",
+      "verification": {
+        "level": "V1",
+        "note": "value and unit confirmed against arXiv:1803.07905v3 on 2026-11-17; version of record not checked"
+      },
+      "uncertainty": {
+        "value": 0.05,
+        "unit": "relative",
+        "kind": "assumed",
+        "note": "pump wavelength only 'near 980 nm'"
+      }
+    },
+    "g_p": {
+      "value": 0.0,
+      "unit": "1/m",
+      "symbol": "g*(980)",
+      "category": "assumed",
+      "source": {
+        "ref": "[124]",
+        "locator": "Fig. 7 caption (arXiv:1803.07905v3): g*_p = 0 m^-1"
+      },
+      "applies_to": "no stimulated emission at the 980 nm pump (fast 4I11/2 -> 4I13/2 relaxation); stated by the source, a modeling assumption",
+      "verification": {
+        "level": "V1"
+      }
+    },
+    "r_er": {
+      "value": 7.3e-07,
+      "unit": "m",
+      "symbol": "b",
+      "category": "measured",
+      "source": {
+        "ref": "[124]",
+        "locator": "Appendix A and Fig. 7 caption (arXiv:1803.07905v3)"
+      },
+      "applies_to": "radius of the Er-doped region",
+      "verification": {
+        "level": "V1",
+        "note": "value and unit confirmed against arXiv:1803.07905v3 on 2026-11-17; version of record not checked"
+      }
+    },
+    "n_t": {
+      "value": 9.96e+24,
+      "unit": "1/m^3",
+      "symbol": "N_t",
+      "category": "measured",
+      "source": {
+        "ref": "[124]",
+        "locator": "Appendix A and Fig. 7 caption (arXiv:1803.07905v3)"
+      },
+      "applies_to": "Er3+ concentration",
+      "verification": {
+        "level": "V1",
+        "note": "value and unit confirmed against arXiv:1803.07905v3 on 2026-11-17; version of record not checked"
+      }
+    },
+    "tau": {
+      "value": 0.01,
+      "unit": "s",
+      "symbol": "tau",
+      "category": "measured",
+      "source": {
+        "ref": "[124]",
+        "locator": "Appendix A and Fig. 7 caption (arXiv:1803.07905v3)"
+      },
+      "applies_to": "4I13/2 lifetime",
+      "verification": {
+        "level": "V1",
+        "note": "value and unit confirmed against arXiv:1803.07905v3 on 2026-11-17; version of record not checked; the source writes 'tau approximately 10 ms'"
+      }
+    },
+    "zeta": {
+      "value": 1667500000000000.0,
+      "unit": "1/(m s)",
+      "symbol": "zeta",
+      "category": "derived",
+      "derivation": "zeta = pi b^2 N_t / tau",
+      "source": {
+        "ref": "this work"
+      },
+      "applies_to": "saturation parameter",
+      "verification": {
+        "level": "V2"
+      },
+      "uncertainty": {
+        "value": 0.1,
+        "unit": "relative",
+        "kind": "assumed",
+        "note": "tau 'approximately 10 ms'; r_Er and N_t without stated uncertainty"
+      }
+    },
+    "alpha_gstar_spectra": {
+      "value": "data/perin2019_giles_coefficients.csv",
+      "unit": "1/m",
+      "symbol": "alpha(lambda), g*(lambda)",
+      "category": "measured",
+      "source": {
+        "ref": "[124]",
+        "locator": "Fig. 7",
+        "digitized": true,
+        "digitization_method": "vector-path extraction and axis calibration (digitize_perin2019.py, stages 1 and 2; raw vector paths in data/raw_perin2019)"
+      },
+      "applies_to": "1470-1569 nm",
+      "verification": {
+        "level": "V2",
+        "consistency": "at 300 K a single crossing wavelength of 1533.5 nm (median of the pointwise values over 1500-1565 nm) reproduces g* from alpha with Equation (1) within 1.6 % over 1500-1565 nm; a free-temperature fit over 1470-1569 nm gives 293.2 K (crossing wavelength 1533.5 nm) and a maximum deviation of 0.065 %, i.e. within 0.07 % (script values: e2e_perin.mccumber_test, Fig12_end_to_end_results.json, L1)",
+        "mccumber_test": {
+          "relation": "g*/alpha = exp[(hc/kT)(1/lambda_x - 1/lambda)] (Equation 1)",
+          "pointwise_lambda_x_300K": {
+            "range_nm": [
+              1470,
+              1569
+            ],
+            "median_nm": 1533.8,
+            "p05_nm": 1532.8,
+            "p95_nm": 1535.0
+          },
+          "pointwise_lambda_x_300K_1500_1565": {
+            "median_nm": 1533.5,
+            "p05_nm": 1532.9,
+            "p95_nm": 1534.2,
+            "max_dev_of_gstar_at_median_percent": 1.58,
+            "rms_dev_of_gstar_at_median_percent": 0.89
+          },
+          "max_dev_of_gstar_300K_at_median_lambda_x": {
+            "lambda_x_nm": 1533.84,
+            "1470_1569_nm_percent": 2.6,
+            "1500_1565_nm_percent": 2.1,
+            "1531_1562_nm_percent": 2.0,
+            "note": "median crossing wavelength of the full table (1470-1569 nm) applied to all three ranges (2.58, 2.09 and 1.96 %); the script stores the 1470-1569 nm value. The consistency statement uses the median of the 1500-1565 nm range instead (1.58 %)."
+          },
+          "free_temperature_fit": {
+            "lambda_x_nm": 1533.5,
+            "T_K": 293.2,
+            "rms_dev_percent": 0.018,
+            "max_dev_percent": 0.065
+          },
+          "interpretation": "g* equals the McCumber transform of alpha at about 293 K to digitization precision, so g* was most likely computed from alpha by the source (not stated there). The test confirms the internal consistency of the card and the digitization; it is not independent evidence for the emission spectrum (circular for this card).",
+          "script": "e2e_perin.mccumber_test"
+        }
+      },
+      "uncertainty": {
+        "value": 0.05,
+        "unit": "relative",
+        "kind": "stated",
+        "coverage": "not stated; used as one standard deviation",
+        "source": "[124] App. A: 'The experimental error in these values was estimated independently to be about 5%'"
+      }
+    },
+    "T": {
+      "value": 300.0,
+      "unit": "K",
+      "symbol": "T",
+      "category": "assumed",
+      "source": {
+        "ref": "this work"
+      },
+      "applies_to": "temperature for Equation (1)",
+      "verification": {
+        "level": "V0"
+      }
+    },
+    "NA": {
+      "value": 0.28,
+      "unit": "1",
+      "symbol": "NA",
+      "category": "measured",
+      "source": {
+        "ref": "[124]",
+        "locator": "Fig. 7 caption (arXiv:1803.07905v3)"
+      },
+      "applies_to": "numerical aperture of the EDF; not used by the Giles model (the overlap is contained in alpha and g*), needed by simulators that compute the overlap from the waveguide",
+      "verification": {
+        "level": "V1"
+      }
+    },
+    "l_bg": {
+      "value": 0.0,
+      "unit": "1/m",
+      "symbol": "l_k",
+      "category": "assumed",
+      "source": {
+        "ref": "[124]",
+        "locator": "Table 1, 'Excess loss (l_k) 0 dB/m' (simulation parameters)"
+      },
+      "applies_to": "background (excess) loss of the EDF at all wavelengths; set to zero by the source in its simulations; no measured value given",
+      "verification": {
+        "level": "V1"
+      }
+    },
+    "coef_scale_source": {
+      "value": 1.08,
+      "unit": "1",
+      "symbol": "s_src",
+      "category": "fitted",
+      "fit": {
+        "target": "measured gain and ASE of [124], Fig. 8",
+        "method": "not stated by the source",
+        "achieved": "not stated",
+        "data": "[124] Fig. 8"
+      },
+      "source": {
+        "ref": "[124]",
+        "locator": "Appendix A: 'The nominal experimentally measured values have been scaled up by 8% to achieve the best fit between theory and experiment'"
+      },
+      "applies_to": "scale applied by the source to its nominal measured alpha and g* for its theory curves; whether Fig. 7 shows nominal or scaled values is not stated. NOT applied in this card: the digitized Fig. 7 spectra are used as published (scale 1).",
+      "verification": {
+        "level": "V1",
+        "note": "at the operating points of Fig. 8 a common 8 % scale changes the mean gain by less than 0.01 dB and the spectral shape by 0.30 dB RMS (e2e_perin.source_model_study)"
+      }
+    }
+  },
+  "reference_data": "data/perin2019_fig8_gain_ase.json (measured gain and ASE at six pump powers, 40 x -13 dBm)",
+  "used_by": [
+    "e2e_perin",
+    "fig_e2e",
+    "hybrid"
+  ],
+  "source_version": "arXiv:1803.07905v3 (18 Feb 2019), Appendix A, Figs. 7-8, Table 1; version of record J. Lightwave Technol. 37(9), 2076-2085 (2019), doi:10.1109/JLT.2019.2897831, not checked",
+  "waveguide": {
+    "NA": 0.28,
+    "doped_radius_um": 0.73,
+    "core_radius": "not stated",
+    "cutoff_wavelength": "not stated",
+    "mode_field_diameter": "not stated",
+    "overlap": "contained in alpha(lambda) and g*(lambda); not separable without the waveguide data"
+  },
+  "reference_operating_points": {
+    "pump_mW": [
+      18.1,
+      31.9,
+      45.8,
+      59.6,
+      87.2,
+      114.9
+    ],
+    "pump_direction": "forward",
+    "pump_wavelength": "near 980 nm",
+    "n_channels": 40,
+    "p_ch_dBm": -13.0,
+    "total_input_dBm": 3.0,
+    "lambda_range_nm": [
+      1531,
+      1562
+    ],
+    "signals": "unmodulated",
+    "ase_resolution_nm": 0.1,
+    "locator": "[124] Appendix A and Fig. 8"
+  },
+  "completeness": {
+    "required_by_model": [
+      "L",
+      "alpha(lambda)",
+      "g*(lambda)",
+      "alpha_p",
+      "g_p",
+      "zeta (or r_er, n_t, tau)",
+      "l_bg",
+      "operating point (pump power and channel powers at the fiber ends)"
+    ],
+    "missing": [
+      "reference planes of pump power, channel power, gain and ASE (component losses of WDM coupler, isolators, splices and connectors not stated)",
+      "exact pump wavelength ('near 980 nm')",
+      "background loss of the EDF (the source sets 0 in its simulations)",
+      "whether Fig. 7 shows the nominal or the 8 %-scaled coefficients",
+      "core radius, cut-off wavelength and mode-field diameter",
+      "effective noise bandwidth of the OSA and the ASE measurement method",
+      "temperature"
+    ]
+  },
+  "data_license": "digitized from the arXiv figures of [124]; redistribution of the digitized curves to be agreed with the source authors",
+  "history": [
+    {
+      "date": "2026-11-17",
+      "change": "fields added (NA, l_bg, coef_scale_source, uncertainty fields, McCumber test record, waveguide, reference_operating_points, completeness, source_version, data_licence); source locators corrected to Appendix A / Fig. 7 caption of arXiv v3; g_p source changed from 'this work' to [124]",
+      "numeric_values_changed": "none",
+      "details": [
+        {
+          "entry": "L",
+          "field": "source.locator",
+          "old": "Sec. IV (arXiv version)",
+          "new": "Appendix A and Fig. 7 caption (arXiv:1803.07905v3)"
+        },
+        {
+          "entry": "alpha_p",
+          "field": "source.locator",
+          "old": "Sec. IV (arXiv version)",
+          "new": "Appendix A and Fig. 7 caption (arXiv:1803.07905v3)"
+        },
+        {
+          "entry": "r_er",
+          "field": "source.locator",
+          "old": "Sec. IV (arXiv version)",
+          "new": "Appendix A and Fig. 7 caption (arXiv:1803.07905v3)"
+        },
+        {
+          "entry": "n_t",
+          "field": "source.locator",
+          "old": "Sec. IV (arXiv version)",
+          "new": "Appendix A and Fig. 7 caption (arXiv:1803.07905v3)"
+        },
+        {
+          "entry": "tau",
+          "field": "source.locator",
+          "old": "Sec. IV (arXiv version)",
+          "new": "Appendix A and Fig. 7 caption (arXiv:1803.07905v3)"
+        },
+        {
+          "entry": "g_p",
+          "field": "source",
+          "old": {
+            "ref": "this work"
+          },
+          "new": {
+            "ref": "[124]",
+            "locator": "Fig. 7 caption (arXiv:1803.07905v3): g*_p = 0 m^-1"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-11-18",
+      "change": "keys renamed to American spelling (source.digitisation_method -> source.digitization_method, data_licence -> data_license); the digitization method now names both stages of digitize_perin2019.py; McCumber consistency statement set to the script values (300 K, 1500-1565 nm: within 1.6 % with the crossing wavelength 1533.5 nm of that range; free-temperature fit 293.2 K, 0.065 %); band-median deviation and a note added to the McCumber test record; free-temperature fit residuals given to two significant digits (0.018 and 0.065 %)",
+      "numeric_values_changed": "none (entry values unchanged; verification record only)"
+    }
+  ]
+}

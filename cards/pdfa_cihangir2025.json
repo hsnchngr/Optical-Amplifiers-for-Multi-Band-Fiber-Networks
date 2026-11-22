@@ -1,0 +1,133 @@
+{
+  "card_id": "PDFA-CIHANGIR2025",
+  "schema_version": "1.0",
+  "title": "Two- and three-stage triple-pass O-band PDFA designs of Cihangir and Yucel (2025), ref. [89] of rev2.2 ([130] in rev3_assembled.md): simulation study, abstract-level card",
+  "model": "none in this review. The source reports simulation and parameter optimization of two PDFA configurations; the simulator is not named in the accessible material",
+  "device": {
+    "type": "Pr-doped fiber amplifier, simulated, two configurations",
+    "host": "not stated in the accessible material",
+    "transition": "O-band signal on 1G4 -> 3H5 (Pr3+); not stated in the abstract"
+  },
+  "reference_plane": "not stated in the accessible material",
+  "source_full": "H. Cihangir, M. Yucel, Performance evaluation of two-stage and three-stage triple pass PDFAs in O-band, Opt. Fiber Technol. 95, 104388 (2025), doi:10.1016/j.yofte.2025.104388 (online 12 Sep 2025; issue dated Dec 2025; 39 references in Crossref).",
+  "access": {
+    "full_text_read": false,
+    "date": "2026-11-18",
+    "routes_tried": [
+      "ScienceDirect (doi.org -> https://www.sciencedirect.com/science/article/pii/S1068520025002639): HTTP 403 'There was a problem providing the content you requested' (CPE00001), i.e. the publisher refused the built-in browser; not retried",
+      "OpenAlex, Semantic Scholar and Crossref records of the DOI: no abstract, no open-access copy (oa_status 'closed'); Crossref lists text-mining links of the Elsevier API only",
+      "Gazi University AVESIS record (avesis.gazi.edu.tr, publication e09e96fd-b62e-410c-ab1b-187824492d38): abstract and keywords, no file"
+    ],
+    "read": "abstract (AVESIS); keywords (AVESIS): Noise figure, Optical gain, Optimization, PDFA, Three-stage triple-pass configuration, Two-stage triple-pass configuration; OpenAlex keywords add 'tunable laser source' and 'parameter optimization'",
+    "consequence": "every entry below comes from the abstract or from the review manuscript; no parameter value of the doped fiber, pump or signal is available. The authors hold the full text and the simulation project"
+  },
+  "notes": "Category conventions as in TDFA-YUCEL2022: 'config' = design choice or operating condition of the study; material data would be 'lit-other', 'spec' or 'assumed', and a simulator default would carry category 'assumed' with 'OptiSystem default, provenance unknown' (or 'simulator default, provenance unknown' if the simulator is not OptiSystem) in its verification note; none is listed because none is stated in the accessible material. Simulation outputs are kept in 'reported_results'. Level V1 = confirmed against the abstract; V0 = transcribed from a secondary statement (the review manuscript) or applicability not confirmed.",
+  "entries": {
+    "configurations": {
+      "value": ["two-stage triple-pass (2S3P-PDFA)", "three-stage triple-pass (3S3P-PDFA)"],
+      "unit": "-",
+      "symbol": "-",
+      "category": "config",
+      "source": {"ref": "[89]", "locator": "Title and Abstract"},
+      "applies_to": "amplifier designs compared in the source; layouts (reflectors, circulators, isolators, pump couplers) not stated in the accessible material",
+      "verification": {"level": "V1", "note": "abstract read 2026-11-18 (Gazi AVESIS). The abstract labels both designs '2P3S-PDFA' in one sentence and '2S3P-PDFA' / '3S3P-PDFA' elsewhere; the labels of the title are used here"}
+    },
+    "components": {
+      "value": ["tunable laser source (TLS)", "Pr3+-doped fiber (PDF)", "pump laser"],
+      "unit": "-",
+      "symbol": "-",
+      "category": "config",
+      "source": {"ref": "[89]", "locator": "Abstract, first sentence"},
+      "applies_to": "main design components named by the source",
+      "verification": {"level": "V1", "note": "abstract only"}
+    },
+    "signal_band": {
+      "value": "O-band",
+      "unit": "-",
+      "symbol": "-",
+      "category": "config",
+      "source": {"ref": "[89]", "locator": "Title"},
+      "applies_to": "signal band; signal wavelength(s) and power are optimization variables whose values are not in the abstract",
+      "verification": {"level": "V1", "note": "title and abstract"}
+    },
+    "optimized_parameters": {
+      "value": ["signal wavelength", "signal power", "PDF length", "ion density", "upconversion", "numerical aperture", "core radius", "doping radius", "operating temperature", "pump power", "pump wavelength"],
+      "unit": "-",
+      "symbol": "-",
+      "category": "config",
+      "source": {"ref": "[89]", "locator": "Abstract ('critical design parameters')"},
+      "applies_to": "names of the parameters the source treats as critical and optimizes; none of their values is stated in the accessible material",
+      "verification": {"level": "V1", "note": "names only; values not available"}
+    },
+    "simulator": {
+      "value": "commercial simulator, described by the review authors as the kind of tool of Table 6 (OptiSystem); name and version not stated in the accessible material of [89]",
+      "unit": "-",
+      "symbol": "-",
+      "category": "config",
+      "source": {"ref": "review manuscript rev2.2", "locator": "l. 407: the multi-pass TDFA, PDFA and EDFA studies [88-90] 'were carried out with this kind of tool'"},
+      "applies_to": "simulation software of [89]",
+      "verification": {"level": "V0", "note": "secondary statement by the review authors; the abstract of [89] says only 'simulation, parameter optimization, and analysis'"}
+    }
+  },
+  "reported_results": {
+    "kind": "simulation outputs of the source, not measurements and not card parameters",
+    "G_2S3P_opt": {
+      "value": 49.4,
+      "unit": "dB",
+      "applies_to": "optimum gain of the two-stage triple-pass design; signal wavelength, input power, pump power and reference plane not stated in the abstract",
+      "source": {"ref": "[89]", "locator": "Abstract ('49,4 dB')"}
+    },
+    "NF_2S3P_at_opt": {
+      "value": 6.5,
+      "unit": "dB",
+      "applies_to": "noise figure at the 2S3P gain optimum ('around 6,5 dB')",
+      "source": {"ref": "[89]", "locator": "Abstract"}
+    },
+    "G_3S3P_opt": {
+      "value": 47.7,
+      "unit": "dB",
+      "applies_to": "optimum gain of the three-stage triple-pass design; conditions as above",
+      "source": {"ref": "[89]", "locator": "Abstract ('47,7 dB')"}
+    },
+    "NF_3S3P_at_opt": {
+      "value": 5.1,
+      "unit": "dB",
+      "applies_to": "noise figure at the 3S3P gain optimum ('around 5,1 dB')",
+      "source": {"ref": "[89]", "locator": "Abstract"}
+    },
+    "differences": "2S3P: 1.7 dB more optimum gain (49.4 - 47.7 dB) and 1.4 dB more NF (6.5 - 5.1 dB) than 3S3P, computed from the abstract values above",
+    "manuscript_consistency": "rev2.2 l. 221 quotes '49.4 dB (6.5 dB NF) and 47.7 dB (5.1 dB NF) for two- and three-stage triple-pass O-band PDFAs'; consistent with the abstract. No operating condition is given there"
+  },
+  "not_reported": [
+    "values of all optimized parameters: PDF length per stage, Pr3+ ion density, upconversion coefficient, numerical aperture, core radius, doping radius, temperature, pump wavelength and power per stage, signal wavelength(s) and power",
+    "host glass of the Pr-doped fiber (fluoride expected for a PDFA, not stated in the abstract) and the simulator component used",
+    "metastable lifetime of 1G4 (and any other level lifetime) and its source",
+    "cross sections: ground-state absorption at the pump wavelength, emission 1G4->3H5, excited-state absorption at signal and pump wavelengths, ground-state absorption in the signal band; and whether these are simulator default files",
+    "background loss of the doped fiber at pump and signal wavelengths",
+    "fluoride-silica splice losses and coupler losses",
+    "reflector reflectivity and insertion losses of circulators, isolators and pump combiners (reference planes)",
+    "ASE spectral grid and directions; solver settings",
+    "noise-figure definition and the reference planes of gain and noise figure",
+    "name and version of the simulator"
+  ],
+  "completeness": {
+    "status": "abstract-level card: the source names the parameters it optimized but none of their values is available here",
+    "required_by_a_full_model": [
+      "L per stage and pass geometry",
+      "N_Pr, doping radius, core radius, NA (or overlap factors)",
+      "tau(1G4) and branching to 3H5",
+      "sigma_GSA at the pump, sigma_e(lambda), sigma_ESA(lambda) at signal and pump, signal-band GSA",
+      "upconversion or cross-relaxation coefficient (named 'upconversion' in the abstract)",
+      "background loss; splice, coupler, circulator and reflector losses",
+      "pump wavelength and power per stage; signal wavelengths and input power",
+      "temperature (named in the abstract), ASE and solver settings"
+    ],
+    "how_to_complete": "export the component parameter report of the simulation project of [89] and enter each value with category 'config', 'lit-other' (with reference) or 'assumed'; write 'simulator default, provenance unknown' (naming the simulator) in the verification note wherever a default file or value was kept"
+  },
+  "provenance_statement": "Whether the Pr-fiber data of [89] were simulator defaults could not be determined: the full text was not accessible to this check (publisher refused the browser) and the abstract names no data source.",
+  "used_by": [],
+  "history": [
+    {"date": "2026-11-18", "change": "card created from the abstract (Gazi AVESIS) and the bibliographic records (Crossref, OpenAlex); full text not accessible"},
+    {"date": "2026-11-18", "change": "independent spot check: NF difference in reported_results corrected from 'about 1.6 dB' to 1.4 dB (6.5 - 5.1 dB); the abstract itself was not re-read in the spot check; labelling of simulator defaults aligned with the categories of cards.py"}
+  ]
+}
