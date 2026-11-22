@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.zip
+# digitized data of Perin et al. (2019): not redistributed, regenerated with code/digitize_perin2019.py
+data/perin2019_giles_coefficients.csv
+data/perin2019_fig8_gain_ase.json
+data/raw_perin2019/*.npy
+data/raw_perin2019/*.json
