@@ -1,0 +1,196 @@
+{
+  "dataset_id": "FIG01-TRAFFIC-CAPACITY",
+  "schema_version": 1,
+  "description": "Literature data behind Figure 1 (revision 3): global traffic volumes and selected laboratory and commercial single-core single-mode-fiber transmission capacities. Every value carries its source, locator and verification. Levels follow cards.py: V0 transcribed only (or taken from a secondary source), V1 value, unit and applicability confirmed against the primary source (publisher abstract, open full text or the issuing organization's own page). Checked 2026-11-17.",
+  "unit_conventions": {
+    "GB": "1e9 bytes (decimal, as used by Cisco)",
+    "ZB": "1e21 bytes (decimal)",
+    "year_seconds": "365 days (366 for 2024) for annual volumes",
+    "occupied_bandwidth": "number of channels x channel spacing (sum of channel slots, gaps between bands excluded) unless stated otherwise",
+    "spectral_efficiency": "capacity / occupied bandwidth, both polarizations"
+  },
+  "traffic": {
+    "cisco_vni_table1": {
+      "series_label": "Global Internet traffic (Cisco VNI, Table 1, 'historical Internet context')",
+      "source": {
+        "ref": "[1]",
+        "citation": "Cisco Systems, Cisco Visual Networking Index: Forecast and Trends, 2017-2022, White Paper (Cisco public), San Jose, CA, 2018",
+        "locator": "Table 1 'The Cisco VNI forecast: historical Internet context', p. 5; column heading 'Global internet traffic'; 'Source: Cisco VNI, 2018.'",
+        "note": "Copy read: page footer '(c) 2018 Cisco and/or its affiliates'. The 2017 value (46,600 GB/s) equals Cisco's total IP traffic of the same document (122 EB per month = 46,400 GB/s), although the table heading says Internet traffic (Internet = 13 of 16 GB per capita per month in 2017)."
+      },
+      "verification": {"level": "V1", "checked": "2026-11-17", "how": "Table 1 read in the PDF of the white paper"},
+      "points": [
+        {"year": 1992, "value": 100, "unit": "GB/day", "kind": "historical estimate", "plotted": true},
+        {"year": 1997, "value": 100, "unit": "GB/h", "kind": "historical estimate", "plotted": true},
+        {"year": 2002, "value": 100, "unit": "GB/s", "kind": "historical estimate", "plotted": true},
+        {"year": 2007, "value": 2000, "unit": "GB/s", "kind": "historical estimate", "plotted": true},
+        {"year": 2017, "value": 46600, "unit": "GB/s", "kind": "historical estimate", "plotted": true},
+        {"year": 2022, "value": 150700, "unit": "GB/s", "kind": "forecast (made in 2018)", "plotted": false}
+      ]
+    },
+    "itu_ff2024": {
+      "series_label": "End-user Internet traffic over fixed and mobile broadband networks (ITU Facts and Figures 2024)",
+      "source": {
+        "ref": "[2]",
+        "citation": "International Telecommunication Union, Facts and Figures 2024 - Internet traffic, ITU, Geneva, 2024",
+        "url": "https://www.itu.int/itu-d/reports/statistics/2024/11/10/ff24-internet-traffic/",
+        "locator": "web page; 'In 2023 mobile broadband traffic ... reached 1 zettabyte'; 'Fixed broadband traffic will reach 6 ZB in 2024, up from 5.1 ZB the previous year'; 2024 mobile 'close to 1.3 ZB' (estimate)"
+      },
+      "verification": {"level": "V1", "checked": "2026-11-17", "how": "ITU page read"},
+      "points": [
+        {"year": 2023, "fixed_ZB": 5.1, "mobile_ZB": 1.0, "kind": "reported", "plotted": true, "plotted_quantity": "fixed + mobile"},
+        {"year": 2024, "fixed_ZB": 6.0, "mobile_ZB": 1.3, "kind": "estimate published Nov 2024", "plotted": false}
+      ]
+    }
+  },
+  "lab_records": [
+    {
+      "id": "onaka1996", "year": 1996, "ref": "new reference (not in rev2.2 list)",
+      "citation": "H. Onaka, H. Miyata, G. Ishikawa, et al., '1.1 Tb/s WDM transmission over a 150 km 1.3 um zero-dispersion single-mode fiber', Optical Fiber Communication Conference (OFC 1996), San Jose, CA, postdeadline paper PD19",
+      "doi": null, "url": "https://opg.optica.org/abstract.cfm?URI=OFC-1996-PD19",
+      "bands": "C", "band_label": "C",
+      "capacity_net_Tbps": 1.1, "capacity_gmi_Tbps": null,
+      "rate_basis": "net line rate without FEC (55 x 20 Gb/s)",
+      "channels": 55, "channel_rate_Gbps": 20,
+      "wavelength_range_nm": [1531.70, 1564.07],
+      "bandwidth_THz": null,
+      "bandwidth_basis": "55 channels x mean spacing; mean spacing = frequency span of 1531.70-1564.07 nm / 54 = 75.0 GHz (computed in the script)",
+      "se_bps_per_Hz_stated": null,
+      "distance_km": 150, "spans": "3 x 50 km (in-line EDFAs every 50 km, dispersion-compensating fiber in repeaters and preamplifier)",
+      "fiber": "1.3 um zero-dispersion single-mode fiber (standard SMF)",
+      "amplifiers": "EDFA",
+      "verification": {"level": "V1 for capacity, distance and fiber (publisher abstract page); V0 for channel count, channel rate, wavelength range and span length (secondary source)",
+        "checked": "2026-11-17",
+        "secondary_source": "Laser Focus World news report on OFC'96 postdeadline papers (1996): 55 channels at 20 Gb/s, 1531.70-1564.07 nm, 150 km, 50 km amplifier spacing",
+        "note": "Crossref has no DOI for this postdeadline paper (10.1364/OFC.1996.PD19 returns 404). Confirm the channel plan in the PD19 paper before publication."}
+    },
+    {
+      "id": "bigo2001", "year": 2001, "ref": "[3]",
+      "citation": "S. Bigo, Y. Frignac, G. Charlet, et al., '10.2Tbit/s (256x42.7Gbit/s PDM/WDM) transmission over 100km TeraLight fiber with 1.28bit/s/Hz spectral efficiency', OFC 2001, Anaheim, CA, postdeadline paper PD25",
+      "doi": "10.1364/OFC.2001.PD25",
+      "bands": "C+L", "band_label": "C+L",
+      "capacity_net_Tbps": 10.2, "capacity_gmi_Tbps": null,
+      "rate_basis": "net payload rate: 256 channels x 42.7 Gb/s line rate = 10.9 Tb/s including FEC overhead; 10.2 Tb/s excludes it (inferred from the title values)",
+      "channels": 256, "channel_rate_Gbps": 42.7,
+      "wavelength_range_nm": null,
+      "bandwidth_THz": null,
+      "bandwidth_basis": "capacity / stated SE = 10.2 / 1.28 (computed in the script); channel plan not verified (128 wavelengths x 2 polarizations; trade-press descriptions of the spacing conflict)",
+      "se_bps_per_Hz_stated": 1.28,
+      "distance_km": 100, "spans": "100 km (span count not stated in the abstract; presumably one span)",
+      "fiber": "TeraLight non-zero dispersion-shifted fiber (not standard SMF)",
+      "amplifiers": "hybrid erbium/Raman (trade press)",
+      "verification": {"level": "V1", "checked": "2026-11-17", "how": "title and abstract on the publisher page (Optica)"}
+    },
+    {
+      "id": "qian2011", "year": 2011, "ref": "[4]",
+      "citation": "D. Qian, M.-F. Huang, E. Ip, et al., '101.7-Tb/s (370x294-Gb/s) PDM-128QAM-OFDM transmission over 3x55-km SSMF using pilot-based phase noise mitigation', OFC/NFOEC 2011, Los Angeles, CA, postdeadline paper PDPB5",
+      "doi": "10.1364/NFOEC.2011.PDPB5",
+      "bands": "C+L", "band_label": "C+L",
+      "capacity_net_Tbps": 101.7, "capacity_gmi_Tbps": null,
+      "rate_basis": "net rate after FEC overhead: 370 x 294 Gb/s = 108.8 Tb/s raw, 101.7 Tb/s net",
+      "channels": 370, "channel_spacing_GHz": 25.0,
+      "wavelength_range_nm": null,
+      "bandwidth_THz": null,
+      "bandwidth_basis": "370 x 25 GHz (computed in the script); consistent with 101.7 Tb/s / 11 b/s/Hz = 9.25 THz",
+      "se_bps_per_Hz_stated": 11.0,
+      "distance_km": 165, "spans": "3 x 55 km",
+      "fiber": "standard SMF (SSMF)",
+      "amplifiers": "all-Raman (comparison table in Chin. Opt. Lett. 2014, secondary)",
+      "verification": {"level": "V1", "checked": "2026-11-17", "how": "title and abstract on the publisher page; 25 GHz grid and C+L from the extended version (J. Lightwave Technol. 30(10), 1540-1548, 2012) as summarized by indexes"}
+    },
+    {
+      "id": "galdino2020", "year": 2020, "ref": "[5]",
+      "citation": "L. Galdino, A. Edwards, W. Yi, et al., 'Optical fibre capacity optimisation via continuous bandwidth amplification and geometric shaping', IEEE Photonics Technol. Lett. 32(17), 1021-1024 (2020)",
+      "doi": "10.1109/LPT.2020.3007591",
+      "bands": "S+C+L", "band_label": "S+C+L",
+      "capacity_net_Tbps": null, "capacity_gmi_Tbps": 178.08,
+      "rate_basis": "achievable information rate from the measured per-channel GMI with the 4.64 % pilot overhead deducted (AWGN auxiliary channel); not FEC-decoded; called 'net throughput' by the authors",
+      "channels": 660, "channel_spacing_GHz": 25.5, "symbol_rate_GBd": 25,
+      "wavelength_range_nm": [1484.86, 1619.67],
+      "bandwidth_THz": 16.83,
+      "bandwidth_basis": "stated continuous bandwidth; equals 660 x 25.5 GHz",
+      "se_bps_per_Hz_stated": null,
+      "distance_km": 40, "spans": "1 x 40 km",
+      "fiber": "Corning SMF-28 ULL ultra-low-loss single-mode fiber, 0.16 dB/km at C-band plus 0.4 dB splice/connector loss (ITU-T category not checked)",
+      "amplifiers": "TDFA (1484.86-1519.8 nm), discrete Raman (1520-1529 nm and 1608-1619.67 nm), C- and L-band EDFAs",
+      "verification": {"level": "V1", "checked": "2026-11-17", "how": "abstract (Semantic Scholar record) and accepted-manuscript full text (UCL Discovery), Sec. I, II and IV"}
+    },
+    {
+      "id": "puttnam2023", "year": 2023, "ref": "[6]",
+      "citation": "B. J. Puttnam, R. S. Luis, Y. Huang, et al., '301 Tb/s E, S, C+L-band transmission over 212 nm bandwidth with E-band bismuth-doped fiber amplifier and gain equalizer', ECOC 2023, Glasgow, pp. 1674-1677",
+      "doi": "10.1049/icp.2023.2664",
+      "doi_extended_version": "10.1109/JLT.2024.3379676",
+      "bands": "E+S+C+L", "band_label": "E–L",
+      "capacity_net_Tbps": 301.0, "capacity_gmi_Tbps": 321.0,
+      "rate_basis": "301 Tb/s after LDPC decoding at 50 km; 321 Tb/s GMI-based (NICT release of 29 Jan 2024; J. Lightwave Technol. 42(11), 4006-4012 (2024): '321 Tb/s (301 Tb/s after decoding)')",
+      "channels": 1097, "channel_spacing_GHz": 25.0,
+      "wavelength_range_nm": [1410.8, 1623.1],
+      "bandwidth_THz": null,
+      "bandwidth_basis": "1097 x 25 GHz = 27.4 THz (computed in the script); the span 1410.8-1623.1 nm is 27.8 THz",
+      "se_bps_per_Hz_stated": null,
+      "distance_km": 50, "spans": "1 x 50 km for the record value (single spans up to 150 km and 2 x 100 km also reported)",
+      "fiber": "commercially available standard SMF",
+      "amplifiers": "E-band BDFA with E-band gain equalizer, thulium- and erbium-doped amplifiers, backward distributed Raman",
+      "verification": {"level": "V1", "checked": "2026-11-17", "how": "ECOC abstract (Aston research portal), NICT press release, abstract of the extended JLT version"}
+    },
+    {
+      "id": "puttnam2024", "year": 2024, "ref": "[7]",
+      "citation": "B. J. Puttnam, R. S. Luis, I. Phillips, et al., '402 Tb/s GMI data-rate OESCLU-band transmission', OFC 2024, San Diego, CA, postdeadline paper Th4A.3",
+      "doi": "10.1364/OFC.2024.Th4A.3",
+      "bands": "O+E+S+C+L+U", "band_label": "O–U",
+      "capacity_net_Tbps": 378.9, "capacity_gmi_Tbps": 402.2,
+      "rate_basis": "402.2 Tb/s GMI-based, 378.9 Tb/s decoded (abstract)",
+      "channels": 1505, "channel_spacing_GHz": 25.0,
+      "wavelength_range_nm": [1281.2, 1649.9],
+      "bandwidth_THz": 37.6,
+      "bandwidth_basis": "stated transmission bandwidth; equals 1505 x 25 GHz",
+      "se_bps_per_Hz_stated": null,
+      "distance_km": 50, "spans": "50 km (span count not stated in the abstract; presumably one span)",
+      "fiber": "SMF with suppressed water-absorption peak (G.652.D type), commercially available",
+      "amplifiers": "six types of doped-fiber amplifier, discrete and distributed Raman",
+      "verification": {"level": "V1", "checked": "2026-11-17", "how": "publisher abstract (Optica) and NICT press release of 26 Jun 2024 (channel count, wavelength range)"}
+    },
+    {
+      "id": "luis2026", "year": 2026, "ref": "[8]",
+      "citation": "R. S. Luis, J. Yang, R. Aparecido, et al., '450 Tb/s GMI, 42.4 THz, OESCL-band transmission over a field-deployed fiber', OFC 2026, Los Angeles, CA, postdeadline paper Th4B.5",
+      "doi": "10.1364/OFC.2026.Th4B.5",
+      "bands": "O+E+S+C+L", "band_label": "O–L",
+      "capacity_net_Tbps": 418.0, "capacity_gmi_Tbps": 450.0,
+      "capacity_gmi_is_lower_bound": true,
+      "rate_basis": ">450 Tb/s GMI-based, 418 Tb/s decoded (abstract)",
+      "channels": 1273, "channel_spacing_GHz": null,
+      "wavelength_range_nm": [1264.0, 1617.8],
+      "bandwidth_THz": 42.4,
+      "bandwidth_basis": "stated transmission bandwidth ('above 42.4 THz'); channel spacing not stated (42.4 THz / 1273 = 33.3 GHz on average)",
+      "se_bps_per_Hz_stated": null,
+      "distance_km": 39, "spans": "1 x 39 km field-deployed metropolitan link (UCL - Telehouse North, London, looped back)",
+      "fiber": "field-deployed ITU-T G.652.D",
+      "amplifiers": "BDFA (O- and E-band), TDFA (S-band), EDFA (C- and L-band)",
+      "verification": {"level": "V1", "checked": "2026-11-17", "how": "publisher abstract (Optica) and NICT press release of 1 Jun 2026 (wavelength range, amplifiers)"}
+    }
+  ],
+  "commercial_systems": [
+    {
+      "id": "commercial1997", "year": 1997, "ref": "[10]",
+      "description": "state-of-the-art commercial WDM system: 16 channels at 2.5 Gb/s, SE 0.0125 b/s/Hz, up to 40 Gb/s aggregate",
+      "capacity_net_Tbps": 0.04, "se_bps_per_Hz_stated": 0.0125,
+      "bandwidth_THz": null, "bandwidth_basis": "capacity / stated SE = 3.2 THz (16 x 200 GHz)",
+      "bands": "C", "band_label": "C",
+      "verification": {"level": "V1", "checked": "2026-11-17", "how": "open full text of [10] (Opt. Express 26(18), 24190, 2018)"}
+    },
+    {
+      "id": "commercial2017", "year": 2017, "ref": "[10]",
+      "description": "commercial long-haul system: up to 192 channels at up to 250 Gb/s on a 50 GHz grid, SE 5 b/s/Hz, about 48 Tb/s",
+      "capacity_net_Tbps": 48.0, "se_bps_per_Hz_stated": 5.0,
+      "bandwidth_THz": null, "bandwidth_basis": "192 x 50 GHz = 9.6 THz (C+L)",
+      "channels": 192, "channel_spacing_GHz": 50.0,
+      "bands": "C+L", "band_label": "C+L",
+      "verification": {"level": "V1", "checked": "2026-11-17", "how": "open full text of [10]"}
+    }
+  ],
+  "excluded": [
+    {"what": "Cisco 2022 value (150,700 GB/s)", "why": "forecast made in 2018; reported ITU values for 2023 exist"},
+    {"what": "430.2 Tb/s (GMI) record of 2025 (NICT et al., ECOC 2025)", "why": "three-mode transmission in the O-band over 10 km of G.654-compatible fiber, not single-mode transmission"},
+    {"what": "1 Tb/s experiment at OFC'96 by AT&T Research (25 wavelengths x 2 polarizations x 20 Gb/s, 1542-1561.2 nm, 55 km; Laser Focus World report)", "why": "non-zero-dispersion fiber and lower capacity than the 1.1 Tb/s Fujitsu result on standard SMF; a third 1996 terabit experiment (NTT) was not checked"}
+  ]
+}
