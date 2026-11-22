@@ -1,0 +1,39 @@
+{
+  "script": "fig02_fig05_schematics.py",
+  "removed_legacy_outputs": [],
+  "note": "schematics only; no model is evaluated",
+  "panels": {
+    "a": "double-pass doped-fiber amplifier: circulator, WDM coupler, pump (980 or 1480 nm), Er-doped fiber, FRM",
+    "b": "transmission fiber with counter-propagating Raman pumps (several wavelengths) via WDM coupler, EDFA, GFF",
+    "c": "i) Raman pumps + one wideband SOA module, no band splitter; ii) band splitter in front of two band SOAs, pumps behind the splitter routed around it (bypass) to a coupler on the span side; iii) separate Raman pump module (coupler + pumps) in front of the band splitter",
+    "d": "band splitter, O: PDFA or BDFA, E: BDFA, S: TDFA, BDFA or Raman, C: EDFA, L: EDFA, U: discrete Raman, band combiner",
+    "e": "circulator, splitter/combiner, branch 1 EDF + Raman fiber, branch 2 Raman fiber, mirror, Raman pumps 1410/1480/1495 nm with residual-pump recycling (drawn after [80, 81]; pump routing simplified)",
+    "f": "OLT, feeder fiber, reach extender with two diplexers, downstream (S- or L-band) and upstream (O-band, burst mode) amplifiers, passive 1:N splitter, ONUs"
+  },
+  "abbreviations": {
+    "WDM": "wavelength-division-multiplexing (pump/signal) coupler or band filter",
+    "FRM": "Faraday rotator mirror",
+    "EDFA": "erbium-doped fiber amplifier",
+    "EDF": "erbium-doped fiber",
+    "GFF": "gain-flattening filter",
+    "SOA": "semiconductor optical amplifier",
+    "PDFA": "praseodymium-doped fiber amplifier",
+    "BDFA": "bismuth-doped fiber amplifier",
+    "TDFA": "thulium-doped fiber amplifier",
+    "OLT": "optical line terminal",
+    "ONU": "optical network unit",
+    "PON": "passive optical network (caption only)"
+  },
+  "figure_size_in": [
+    7.1,
+    6.26
+  ],
+  "removed_terms": [
+    "REDFA",
+    "UWB",
+    "DS/US",
+    "Tx",
+    "LD",
+    "Circ."
+  ]
+}

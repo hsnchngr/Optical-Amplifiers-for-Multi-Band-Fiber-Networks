@@ -1,0 +1,709 @@
+{
+ "first_order_design": {
+  "budget_W": 0.5,
+  "pump_wavelengths_nm": [
+   1420.0,
+   1430.0,
+   1440.0,
+   1450.0,
+   1460.0,
+   1470.0,
+   1480.0
+  ],
+  "pump_powers_mW": [
+   112.9779,
+   178.2062,
+   42.5515,
+   0.0,
+   0.0,
+   0.0,
+   165.9043
+  ],
+  "total_pump_mW": 499.6399,
+  "nbar": 0.5644,
+  "edfa_gain_dB": {
+   "mean": 8.9857,
+   "min": 5.4579,
+   "max": 10.9761
+  },
+  "first_order": {
+   "net_mean": 1.08e-14,
+   "net_ripple_pp": 0.8173,
+   "onoff": {
+    "mean": 7.7143,
+    "min": 6.0517,
+    "max": 10.8682
+   }
+  },
+  "full_model": {
+   "net_mean": 0.428,
+   "net_ripple_pp": 4.5245,
+   "net": {
+    "mean": 0.428,
+    "min": -2.2996,
+    "max": 2.225
+   },
+   "onoff": {
+    "mean": 8.1466,
+    "min": 7.5045,
+    "max": 9.2189
+   },
+   "residual_pump_power_at_z0_mW": [
+    0.2654,
+    0.6234,
+    0.2,
+    2.7184
+   ],
+   "bvp_status": 0,
+   "photon_balance_rel": 2.99e-06
+  },
+  "model_form_error_full_minus_first_order_dB": {
+   "mean": 0.428,
+   "rms": 1.3716,
+   "max_abs": 2.2015,
+   "peak_to_peak": 4.1271
+  }
+ },
+ "residual_corrected_design_initializer": {
+  "converged": true,
+  "iterations": 11,
+  "pump_powers_mW": [
+   163.5892,
+   215.8254,
+   44.6248,
+   0.0,
+   0.0,
+   0.0,
+   75.6005
+  ],
+  "nbar": 0.5678,
+  "full_model_ripple": 0.8131,
+  "full_model_mean": 0.000658
+ },
+ "full_model_optimized_design": {
+  "budget_W": 0.5,
+  "pump_wavelengths_nm": [
+   1420.0,
+   1430.0,
+   1440.0,
+   1450.0,
+   1460.0,
+   1470.0,
+   1480.0
+  ],
+  "pump_powers_mW": [
+   163.9569,
+   215.8002,
+   44.6701,
+   0.0,
+   0.0,
+   0.0,
+   75.5728
+  ],
+  "total_pump_mW": 500.0,
+  "nbar": 0.5678,
+  "edfa_gain_dB": {
+   "mean": 9.2379,
+   "min": 5.8626,
+   "max": 11.1727
+  },
+  "first_order": {
+   "net_mean": -0.4745,
+   "net_ripple_pp": 3.6268,
+   "onoff": {
+    "mean": 6.9876,
+    "min": 4.2483,
+    "max": 11.9603
+   }
+  },
+  "full_model": {
+   "net_mean": 5.51e-09,
+   "net_ripple_pp": 0.8122,
+   "net": {
+    "mean": 5.51e-09,
+    "min": -0.3667,
+    "max": 0.4455
+   },
+   "onoff": {
+    "mean": 7.4664,
+    "min": 5.662,
+    "max": 10.747
+   },
+   "residual_pump_power_at_z0_mW": [
+    0.5835,
+    1.127,
+    0.3198,
+    1.862
+   ],
+   "bvp_status": 0,
+   "photon_balance_rel": 2.99e-06
+  },
+  "model_form_error_full_minus_first_order_dB": {
+   "mean": 0.4745,
+   "rms": 1.1107,
+   "max_abs": 1.8378,
+   "peak_to_peak": 3.3274
+  },
+  "slp": {
+   "iterations": 3,
+   "full_model_solves": 25,
+   "mean_deviation_dB": 5.51e-09,
+   "history": [
+    {
+     "iter": 0,
+     "merit": 0.813,
+     "merit_pred": 0.8122,
+     "merit_new": 0.8123,
+     "accepted": true,
+     "delta": 0.03
+    },
+    {
+     "iter": 1,
+     "merit": 0.8123,
+     "merit_pred": 0.8122,
+     "merit_new": 0.8122,
+     "accepted": true,
+     "delta": 0.03
+    },
+    {
+     "iter": 2,
+     "merit": 0.8122,
+     "merit_pred": 0.8122,
+     "stationary": true,
+     "delta": 0.03
+    }
+   ]
+  }
+ },
+ "model_form_error_breakdown_at_first_order_pumps": {
+  "pump_to_signal_gain_only": {
+   "err_mean": 1.15e-10,
+   "err_rms": 1.18e-10,
+   "err_max_abs": 1.62e-10,
+   "err_pp": 7.17e-11,
+   "net_ripple_pp": 0.8173,
+   "net_mean": 1.15e-10
+  },
+  "plus_signal_induced_pump_depletion": {
+   "err_mean": -0.1881,
+   "err_rms": 0.1918,
+   "err_max_abs": 0.2481,
+   "err_pp": 0.1006,
+   "net_ripple_pp": 0.9143,
+   "net_mean": -0.1881
+  },
+  "plus_pump_pump_SRS": {
+   "err_mean": 0.4333,
+   "err_rms": 1.1948,
+   "err_max_abs": 1.8978,
+   "err_pp": 3.5058,
+   "net_ripple_pp": 4.0,
+   "net_mean": 0.4333
+  },
+  "plus_signal_signal_SRS_full": {
+   "err_mean": 0.428,
+   "err_rms": 1.3716,
+   "err_max_abs": 2.2015,
+   "err_pp": 4.1271,
+   "net_ripple_pp": 4.5245,
+   "net_mean": 0.428
+  }
+ },
+ "model_form_error_vs_load": {
+  "-3 dBm per channel (13.0 dBm total)": {
+   "full_ripple": 4.2921,
+   "full_mean": 0.5441,
+   "err_mean": 0.5441,
+   "err_rms": 1.3346,
+   "err_max_abs": 2.1848
+  },
+  "+0 dBm per channel (16.0 dBm total)": {
+   "full_ripple": 4.5245,
+   "full_mean": 0.428,
+   "err_mean": 0.428,
+   "err_rms": 1.3716,
+   "err_max_abs": 2.2015
+  },
+  "+3 dBm per channel (19.0 dBm total)": {
+   "full_ripple": 4.9906,
+   "full_mean": 0.2119,
+   "err_mean": 0.2119,
+   "err_rms": 1.4855,
+   "err_max_abs": 2.4146
+  }
+ },
+ "solver_verification": {
+  "single_pump_0.1W_onoff_bvp_minus_closed_form_dB": 4.43e-11,
+  "single_pump_0.3W_onoff_bvp_minus_closed_form_dB": 1.33e-10,
+  "single_pump_0.5W_onoff_bvp_minus_closed_form_dB": 2.21e-10,
+  "multi_pump_gain_terms_only_max_abs_dev_from_first_order_dB": 1.62e-10,
+  "refinement_tol1e-7_vs_tol1e-10_max_abs_dB": 4.94e-08,
+  "photon_number_balance_rel_residual": 2.99e-06
+ },
+ "first_order_design_ripple_on_0p05nm_grid_dB": 0.8658,
+ "edfa_check": {
+  "note": "ASE-free two-level estimate with card EDFA-PERIN2019, all passive loss placed before the EDF (lower bound)",
+  "edf_input_total_dBm": 7.0957,
+  "edf_output_total_dBm": 16.0305,
+  "pump_980_mW": 58.9011,
+  "nsp_design": {
+   "1530 nm": 5.5385,
+   "1545 nm": 2.5013,
+   "1565 nm": 1.6666
+  },
+  "nbar_edfa_only": 0.6686,
+  "nsp_edfa_only": {
+   "1530 nm": 2.1433,
+   "1545 nm": 1.6413,
+   "1565 nm": 1.352
+  }
+ },
+ "drb_estimate": {
+  "note": "double-scattering integral, r_R = 6.18e-05 1/km (card HYBRID-C80, UNVERIFIED)",
+  "design_channels_dB": {
+   "mean": -52.9084,
+   "min": -53.6195,
+   "max": -51.3437
+  },
+  "single_pump_1450nm_signal_1550nm_dB": {
+   "0.0 dB on-off": -55.2381,
+   "5.9 dB on-off": -53.6473,
+   "8.9 dB on-off": -52.3396,
+   "11.9 dB on-off": -50.486,
+   "14.9 dB on-off": -47.967,
+   "17.8 dB on-off": -44.7773,
+   "20.8 dB on-off": -41.024
+  }
+ },
+ "sensitivity_reference_design": {
+  "raman_scaling_gnpy_area": {
+   "first_order_ripple": 0.82,
+   "first_order_P_mW": [
+    110.4871,
+    180.3013,
+    41.6137,
+    0.0,
+    0.0,
+    0.0,
+    167.3508
+   ],
+   "full_optimized_ripple": 0.8154,
+   "full_optimized_P_mW": [
+    159.909,
+    218.4317,
+    43.9589,
+    0.0,
+    0.0,
+    0.0,
+    77.7004
+   ],
+   "full_optimized_nbar": 0.5694
+  },
+  "L_passive_1.0dB": {
+   "first_order_ripple": 0.8152,
+   "full_optimized_ripple": 0.81,
+   "full_optimized_nbar": 0.5625,
+   "full_optimized_P_mW": [
+    175.2106,
+    212.9159,
+    44.0926,
+    0.0,
+    0.0,
+    0.0,
+    67.7809
+   ]
+  },
+  "L_passive_2.0dB": {
+   "first_order_ripple": 0.82,
+   "full_optimized_ripple": 0.8155,
+   "full_optimized_nbar": 0.573,
+   "full_optimized_P_mW": [
+    152.0473,
+    218.9122,
+    45.2743,
+    0.0,
+    0.0,
+    0.0,
+    83.7662
+   ]
+  },
+  "edf_coefficient_scale_from_Fig12_calibration": {
+   "coef_scale": 1.0664,
+   "first_order_ripple": 0.8761,
+   "full_optimized_ripple": 0.8709,
+   "full_optimized_nbar": 0.5624,
+   "full_optimized_P_mW": [
+    177.552,
+    219.7263,
+    40.7512,
+    0.0,
+    0.0,
+    0.0,
+    61.9705
+   ],
+   "note": "alpha and g* scaled by coef_scale (equivalent to an EDF length of coef_scale x 8 m)"
+  }
+ },
+ "first_order_floor_checks": {
+  "note": "first-order LP, EDFA inversion free, other conditions as the reference design",
+  "0.5W": {
+   "reference_7_pumps_1420_1480nm": 0.8173,
+   "pumps_15_candidates_1415_1485nm_5nm_steps": 0.681,
+   "pumps_15_candidates_used_mW": {
+    "1415": 148.6214,
+    "1420": 17.4343,
+    "1430": 161.9668,
+    "1435": 12.6981,
+    "1485": 159.1791
+   },
+   "band_1536_1565nm_34_channels": 0.3155
+  },
+  "1.0W": {
+   "reference_7_pumps_1420_1480nm": 0.7953,
+   "pumps_15_candidates_1415_1485nm_5nm_steps": 0.3388,
+   "pumps_15_candidates_used_mW": {
+    "1415": 356.8467,
+    "1420": 5.6986,
+    "1425": 96.8214,
+    "1430": 105.4324,
+    "1435": 96.0497,
+    "1485": 215.4745
+   },
+   "band_1536_1565nm_34_channels": 0.1648
+  }
+ },
+ "runtime_s": 81.3793,
+ "conditions": {
+  "span": "80 km G.652 fiber (card RAMAN-G652: alpha_s 0.19 dB/km, alpha_p 0.25 dB/km, C_R 0.406 1/(W km) at 1450 nm)",
+  "raman_profile": "SSMF gain-efficiency profile distributed with GNPy, scaled as in card HYBRID-C80 (raman_scaling)",
+  "edfa": "8 m EDF of ref. [124] (card EDFA-PERIN2019), average-inversion relation, internal EDF gain",
+  "passive_loss_dB": 1.5,
+  "channels": "40 channels 1530-1565 nm, equally spaced in frequency (112.4 GHz)",
+  "launch": "0 dBm per channel at the fiber input (16.0 dBm total)",
+  "target": "mean span net gain 0 dB (transparent span)",
+  "pump_grid_nm": [
+   1420.0,
+   1430.0,
+   1440.0,
+   1450.0,
+   1460.0,
+   1470.0,
+   1480.0
+  ],
+  "per_pump_max_W": 0.4,
+  "onoff_cap_dB": 15.0,
+  "nbar_bounds": [
+   0.5,
+   0.8
+  ],
+  "full_model": "all channels and pumps, counter-propagating pumps, pump depletion, pump-pump, pump-signal and signal-signal SRS with photon-number factor, attenuation; solve_bvp",
+  "full_model_optimization": "sequential LP with forward-difference Jacobian of the full model (step 2 mW), trust region, exact penalty mu = 50 on the mean; local optimum",
+  "excluded": "ASE and noise figure, double Rayleigh scattering (estimated separately), pump RIN, temperature, polarization, spectral shape of a real GFF, spectral hole burning, EDFA dynamics",
+  "budget_W": 0.5
+ },
+ "raman_scaling_check": {
+  "gnpy_profile_peak": 0.4195,
+  "chosen": 0.4049,
+  "chosen_vs_gnpy": -0.0349,
+  "alt_gnpy_area": 0.3972,
+  "alt_gnpy_area_vs_chosen": -0.019,
+  "alt_gR_over_Acard": 0.4162,
+  "alt_gR_over_Acard_vs_chosen": 0.028
+ },
+ "channels_nm": [
+  1530.0,
+  1530.8779,
+  1531.7567,
+  1532.6366,
+  1533.5175,
+  1534.3994,
+  1535.2824,
+  1536.1663,
+  1537.0513,
+  1537.9373,
+  1538.8243,
+  1539.7123,
+  1540.6013,
+  1541.4914,
+  1542.3825,
+  1543.2747,
+  1544.1678,
+  1545.062,
+  1545.9573,
+  1546.8536,
+  1547.7509,
+  1548.6493,
+  1549.5487,
+  1550.4491,
+  1551.3506,
+  1552.2532,
+  1553.1568,
+  1554.0614,
+  1554.9671,
+  1555.8739,
+  1556.7817,
+  1557.6906,
+  1558.6005,
+  1559.5115,
+  1560.4236,
+  1561.3367,
+  1562.2509,
+  1563.1662,
+  1564.0826,
+  1565.0
+ ],
+ "curves": {
+  "G_edfa": [
+   5.8626,
+   6.3418,
+   6.7391,
+   7.0342,
+   7.2229,
+   7.2891,
+   7.2995,
+   7.2961,
+   7.3245,
+   7.4214,
+   7.592,
+   7.8233,
+   8.0907,
+   8.3663,
+   8.6367,
+   8.8913,
+   9.1159,
+   9.308,
+   9.4795,
+   9.6425,
+   9.7977,
+   9.9319,
+   10.0639,
+   10.1911,
+   10.3296,
+   10.4707,
+   10.6032,
+   10.7304,
+   10.8499,
+   10.9618,
+   11.0506,
+   11.1217,
+   11.1727,
+   11.1527,
+   11.081,
+   10.989,
+   10.8604,
+   10.6744,
+   10.463,
+   10.2419
+  ],
+  "G_onoff_first_order": [
+   11.9603,
+   11.6342,
+   11.308,
+   11.0416,
+   10.8995,
+   10.7548,
+   10.6079,
+   10.4605,
+   10.0945,
+   9.7426,
+   9.31,
+   8.8401,
+   8.3943,
+   8.0145,
+   7.6366,
+   7.2587,
+   6.8948,
+   6.5977,
+   6.3129,
+   6.0281,
+   5.7432,
+   5.5224,
+   5.4283,
+   5.3173,
+   5.1997,
+   5.0933,
+   5.0312,
+   4.964,
+   4.8834,
+   4.7965,
+   4.7154,
+   4.6128,
+   4.5022,
+   4.3644,
+   4.2667,
+   4.262,
+   4.2567,
+   4.2515,
+   4.2483,
+   4.2537
+  ],
+  "G_onoff_full": [
+   10.747,
+   10.5423,
+   10.3376,
+   10.182,
+   10.1282,
+   10.0718,
+   10.0131,
+   9.9539,
+   9.6942,
+   9.4391,
+   9.1159,
+   8.7615,
+   8.4239,
+   8.1402,
+   7.8602,
+   7.5801,
+   7.3145,
+   7.1075,
+   6.9165,
+   6.7255,
+   6.5345,
+   6.3811,
+   6.3276,
+   6.2568,
+   6.1791,
+   6.1116,
+   6.0834,
+   6.0481,
+   6.0038,
+   5.955,
+   5.9155,
+   5.8565,
+   5.7913,
+   5.7075,
+   5.662,
+   5.6939,
+   5.7246,
+   5.7552,
+   5.7879,
+   5.827
+  ],
+  "G_net_full": [
+   -0.3667,
+   -0.0803,
+   0.1244,
+   0.2761,
+   0.4232,
+   0.4455,
+   0.4099,
+   0.3606,
+   0.1427,
+   -0.0017,
+   -0.1403,
+   -0.2491,
+   -0.3047,
+   -0.2978,
+   -0.2923,
+   -0.3025,
+   -0.3281,
+   -0.3273,
+   -0.331,
+   -0.3432,
+   -0.3633,
+   -0.3667,
+   -0.2724,
+   -0.2005,
+   -0.1243,
+   -0.0357,
+   0.0836,
+   0.1902,
+   0.2797,
+   0.3569,
+   0.42,
+   0.4455,
+   0.4445,
+   0.3534,
+   0.2486,
+   0.2007,
+   0.1146,
+   -0.0291,
+   -0.1962,
+   -0.3667
+  ],
+  "G_net_first_order_design_first_order": [
+   -0.3739,
+   -0.0936,
+   0.1089,
+   0.2622,
+   0.4135,
+   0.4434,
+   0.4153,
+   0.3716,
+   0.1606,
+   0.0197,
+   -0.1182,
+   -0.229,
+   -0.2882,
+   -0.2845,
+   -0.282,
+   -0.2952,
+   -0.3244,
+   -0.3278,
+   -0.3341,
+   -0.349,
+   -0.3718,
+   -0.3739,
+   -0.2792,
+   -0.2055,
+   -0.1273,
+   -0.0371,
+   0.0824,
+   0.1888,
+   0.2783,
+   0.3558,
+   0.419,
+   0.4434,
+   0.4416,
+   0.3511,
+   0.2459,
+   0.1962,
+   0.1089,
+   -0.0352,
+   -0.2027,
+   -0.3739
+  ],
+  "G_net_first_order_design_full": [
+   -2.2996,
+   -1.8815,
+   -1.5412,
+   -1.265,
+   -1.0221,
+   -0.8999,
+   -0.835,
+   -0.7854,
+   -0.854,
+   -0.8571,
+   -0.8373,
+   -0.7809,
+   -0.6798,
+   -0.5271,
+   -0.3732,
+   -0.2346,
+   -0.1142,
+   0.0201,
+   0.157,
+   0.2853,
+   0.4057,
+   0.5236,
+   0.7054,
+   0.8685,
+   1.0369,
+   1.2147,
+   1.4097,
+   1.5886,
+   1.7543,
+   1.9094,
+   2.05,
+   2.1499,
+   2.225,
+   2.2188,
+   2.19,
+   2.1934,
+   2.1579,
+   2.0656,
+   1.9495,
+   1.8276
+  ]
+ }
+}

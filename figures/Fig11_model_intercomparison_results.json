@@ -1,0 +1,1615 @@
+{
+ "figure": "Fig11_model_intercomparison",
+ "script": "fig_intercomparison.py",
+ "environment": {
+  "python": "3.11.9",
+  "numpy": "2.4.6",
+  "scipy": "1.17.1",
+  "matplotlib": "3.11.2"
+ },
+ "sign_convention": "deviation = (closed form or numerical solution under test) - (reference), in dB",
+ "operating_points": {
+  "EDFA": {
+   "card": "EDFA-GD91-T1",
+   "pump_W": 0.1,
+   "pump_nm": 1480,
+   "pump_direction": "forward",
+   "signal_dBm": -20.0,
+   "signal_nm": 1550,
+   "lengths_m": [
+    1.0,
+    2.0,
+    3.0,
+    4.0,
+    5.0,
+    6.0,
+    7.0,
+    8.0,
+    9.0,
+    10.0,
+    11.0,
+    12.0,
+    13.0,
+    14.0,
+    15.0,
+    16.0,
+    17.0,
+    18.0,
+    19.0,
+    20.0
+   ],
+   "physics": "two-level Giles model; ASE and background loss excluded in both solutions"
+  },
+  "SOA": {
+   "card": "SOA-BULK-REF",
+   "currents_A": [
+    0.12,
+    0.15
+   ],
+   "signal_nm": 1550,
+   "input_grid_dBm": "-40 to +5 dBm in 1 dB steps (46 points)",
+   "physics": "steady-state traveling-wave model, chip gain (facet to facet), ASE neglected"
+  },
+  "RAMAN": {
+   "card": "RAMAN-G652",
+   "pump_W": 0.5,
+   "pump_nm": 1450,
+   "pump_direction": "counter-propagating",
+   "span_km": 50.0,
+   "signal_nm": 1550,
+   "loads": {
+    "single weak channel": -10.0,
+    "lumped load": 16.0
+   },
+   "load_note": "the +16 dBm load is ONE lumped signal at 1550 nm standing for the total power of 40 channels at 0 dBm; inter-channel SRS, the spectral variation of the Raman gain across the load, ASE and double Rayleigh backscattering are not modeled",
+   "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+   "physics": "pump-signal coupled equations, one pump and one signal"
+  }
+ },
+ "EDFA": {
+  "gain_eq5_dB": {
+   "1 m": 2.103373489038388,
+   "2 m": 4.20619412353316,
+   "3 m": 6.3081354634936835,
+   "4 m": 8.408668374148132,
+   "5 m": 10.506936684690707,
+   "6 m": 12.601559081525851,
+   "7 m": 14.690317504684616,
+   "8 m": 16.769677331797855,
+   "9 m": 18.83407439938793,
+   "10 m": 20.874918497775617,
+   "11 m": 22.87934718468982,
+   "12 m": 24.828989399201834,
+   "13 m": 26.699409114874587,
+   "14 m": 28.461324280261323,
+   "15 m": 30.08453038467656,
+   "16 m": 31.544023918968502,
+   "17 m": 32.825736732337894,
+   "18 m": 33.92884810609554,
+   "19 m": 34.86387833163625,
+   "20 m": 35.64838954040266
+  },
+  "pump_out_eq5_dBm": {
+   "1 m": 19.99307811725494,
+   "2 m": 19.985968977325747,
+   "3 m": 19.978562011828508,
+   "4 m": 19.970677997695333,
+   "5 m": 19.96202694158879,
+   "6 m": 19.952140979226495,
+   "7 m": 19.940268832231887,
+   "8 m": 19.925213289802496,
+   "9 m": 19.905089715921715,
+   "10 m": 19.87698852344013,
+   "11 m": 19.836553078685263,
+   "12 m": 19.777560925536104,
+   "13 m": 19.69173534536074,
+   "14 m": 19.56915822395948,
+   "15 m": 19.399599001261414,
+   "16 m": 19.174588746747393,
+   "17 m": 18.88936244159831,
+   "18 m": 18.543642100451713,
+   "19 m": 18.140991047812275,
+   "20 m": 17.687357747555737
+  },
+  "residual_default_setting": {
+   "rmse_dB": 1.7388302154579662e-09,
+   "max_abs_dB": 3.042529783670034e-09,
+   "bias_dB": 1.8255310596515528e-10,
+   "n_points": 20,
+   "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+   "method": "LSODA",
+   "rtol": 1e-10,
+   "atol_W": 1e-16,
+   "where": "models.edfa_ode"
+  },
+  "tolerance_study": {
+   "atol_rule": "atol = 1e-6 W x rtol",
+   "methods": {
+    "LSODA": [
+     {
+      "rmse_dB": 0.0010619959236678512,
+      "max_abs_dB": 0.0013780783248833472,
+      "bias_dB": 0.0010261653796286518,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 0.0001,
+      "atol_W": 1e-10,
+      "rhs_evaluations_20m": 71
+     },
+     {
+      "rmse_dB": 0.00011791328752550213,
+      "max_abs_dB": 0.0001850963446656806,
+      "bias_dB": 0.0001088412012469231,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-05,
+      "atol_W": 1.0000000000000001e-11,
+      "rhs_evaluations_20m": 91
+     },
+     {
+      "rmse_dB": 1.1297038738192366e-05,
+      "max_abs_dB": 1.6489731404334407e-05,
+      "bias_dB": 1.0302537046680272e-05,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-06,
+      "atol_W": 1e-12,
+      "rhs_evaluations_20m": 113
+     },
+     {
+      "rmse_dB": 9.090041737785555e-07,
+      "max_abs_dB": 1.3974634960334242e-06,
+      "bias_dB": 7.788507949468837e-07,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-07,
+      "atol_W": 9.999999999999999e-14,
+      "rhs_evaluations_20m": 141
+     },
+     {
+      "rmse_dB": 1.1872615033177653e-07,
+      "max_abs_dB": 2.231093301219289e-07,
+      "bias_dB": 8.632273973407933e-08,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-08,
+      "atol_W": 1e-14,
+      "rhs_evaluations_20m": 171
+     },
+     {
+      "rmse_dB": 1.0903006919209633e-08,
+      "max_abs_dB": 1.787017822607595e-08,
+      "bias_dB": 5.03306545329707e-09,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-09,
+      "atol_W": 1e-15,
+      "rhs_evaluations_20m": 247
+     },
+     {
+      "rmse_dB": 1.7388302154579662e-09,
+      "max_abs_dB": 3.042529783670034e-09,
+      "bias_dB": 1.8255310596515528e-10,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-10,
+      "atol_W": 1e-16,
+      "rhs_evaluations_20m": 251
+     },
+     {
+      "rmse_dB": 1.9013637155854519e-10,
+      "max_abs_dB": 3.447802043865522e-10,
+      "bias_dB": 1.6774728273105665e-10,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-11,
+      "atol_W": 9.999999999999999e-18,
+      "rhs_evaluations_20m": 271
+     },
+     {
+      "rmse_dB": 1.1402130842656873e-11,
+      "max_abs_dB": 2.100364326906856e-11,
+      "bias_dB": 8.474998480778595e-13,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-12,
+      "atol_W": 9.999999999999999e-19,
+      "rhs_evaluations_20m": 330
+     }
+    ],
+    "RK45": [
+     {
+      "rmse_dB": 0.0003305517278993883,
+      "max_abs_dB": 0.0005192537666758312,
+      "bias_dB": 0.0002815513781298185,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 0.0001,
+      "atol_W": 1e-10,
+      "rhs_evaluations_20m": 80
+     },
+     {
+      "rmse_dB": 4.282216966980568e-05,
+      "max_abs_dB": 6.0861050972249586e-05,
+      "bias_dB": 3.795670992765565e-05,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-05,
+      "atol_W": 1.0000000000000001e-11,
+      "rhs_evaluations_20m": 122
+     },
+     {
+      "rmse_dB": 4.6388001576792145e-06,
+      "max_abs_dB": 6.690946680265597e-06,
+      "bias_dB": 4.208143523753982e-06,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-06,
+      "atol_W": 1e-12,
+      "rhs_evaluations_20m": 188
+     },
+     {
+      "rmse_dB": 4.841022385298121e-07,
+      "max_abs_dB": 6.879970193551799e-07,
+      "bias_dB": 4.4306504258795344e-07,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-07,
+      "atol_W": 9.999999999999999e-14,
+      "rhs_evaluations_20m": 296
+     },
+     {
+      "rmse_dB": 4.940802043381247e-08,
+      "max_abs_dB": 6.832236465470487e-08,
+      "bias_dB": 4.550863519359183e-08,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-08,
+      "atol_W": 1e-14,
+      "rhs_evaluations_20m": 458
+     },
+     {
+      "rmse_dB": 5.00333160407219e-09,
+      "max_abs_dB": 6.858606127480016e-09,
+      "bias_dB": 4.621165006213346e-09,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-09,
+      "atol_W": 1e-15,
+      "rhs_evaluations_20m": 728
+     },
+     {
+      "rmse_dB": 5.057164976640611e-10,
+      "max_abs_dB": 6.872724611639569e-10,
+      "bias_dB": 4.684026944090647e-10,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-10,
+      "atol_W": 1e-16,
+      "rhs_evaluations_20m": 1148
+     },
+     {
+      "rmse_dB": 5.1113565085617835e-11,
+      "max_abs_dB": 6.87947476762929e-11,
+      "bias_dB": 4.737394920795168e-11,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-11,
+      "atol_W": 9.999999999999999e-18,
+      "rhs_evaluations_20m": 1808
+     },
+     {
+      "rmse_dB": 5.084521512096203e-12,
+      "max_abs_dB": 6.931344387339777e-12,
+      "bias_dB": 4.679168164045677e-12,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-12,
+      "atol_W": 9.999999999999999e-19,
+      "rhs_evaluations_20m": 2852
+     }
+    ],
+    "DOP853": [
+     {
+      "rmse_dB": 0.00010016199416394583,
+      "max_abs_dB": 0.00014422584833440055,
+      "bias_dB": -6.704699049184804e-05,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 0.0001,
+      "atol_W": 1e-10,
+      "rhs_evaluations_20m": 68
+     },
+     {
+      "rmse_dB": 2.4596126194812788e-05,
+      "max_abs_dB": 7.991326388179232e-05,
+      "bias_dB": -4.0943500790868725e-06,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-05,
+      "atol_W": 1.0000000000000001e-11,
+      "rhs_evaluations_20m": 92
+     },
+     {
+      "rmse_dB": 1.541736518506666e-06,
+      "max_abs_dB": 2.9828122514174993e-06,
+      "bias_dB": -8.501431985497021e-07,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-06,
+      "atol_W": 1e-12,
+      "rhs_evaluations_20m": 128
+     },
+     {
+      "rmse_dB": 1.4910848517303885e-07,
+      "max_abs_dB": 2.5603831588227877e-07,
+      "bias_dB": -4.519064851216115e-08,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-07,
+      "atol_W": 9.999999999999999e-14,
+      "rhs_evaluations_20m": 152
+     },
+     {
+      "rmse_dB": 1.7365402977524917e-08,
+      "max_abs_dB": 2.807108501201583e-08,
+      "bias_dB": 8.046758814828081e-11,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-08,
+      "atol_W": 1e-14,
+      "rhs_evaluations_20m": 188
+     },
+     {
+      "rmse_dB": 2.200804092320417e-09,
+      "max_abs_dB": 5.817845760702767e-09,
+      "bias_dB": 2.5514237389501206e-10,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-09,
+      "atol_W": 1e-15,
+      "rhs_evaluations_20m": 272
+     },
+     {
+      "rmse_dB": 2.3001351906336737e-10,
+      "max_abs_dB": 5.283240511744225e-10,
+      "bias_dB": 6.273674912904426e-11,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-10,
+      "atol_W": 1e-16,
+      "rhs_evaluations_20m": 392
+     },
+     {
+      "rmse_dB": 2.2645594850860396e-11,
+      "max_abs_dB": 4.5147885430196766e-11,
+      "bias_dB": 8.05067124076686e-12,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-11,
+      "atol_W": 9.999999999999999e-18,
+      "rhs_evaluations_20m": 500
+     },
+     {
+      "rmse_dB": 3.973600238365008e-12,
+      "max_abs_dB": 7.407408020299044e-12,
+      "bias_dB": 2.0173196446648946e-12,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-12,
+      "atol_W": 9.999999999999999e-19,
+      "rhs_evaluations_20m": 644
+     }
+    ],
+    "Radau": [
+     {
+      "rmse_dB": 1.0791996590203359e-05,
+      "max_abs_dB": 1.5782558740795594e-05,
+      "bias_dB": 9.622502917583375e-06,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 0.0001,
+      "atol_W": 1e-10,
+      "rhs_evaluations_20m": 192
+     },
+     {
+      "rmse_dB": 6.627847905967653e-07,
+      "max_abs_dB": 9.254611974540694e-07,
+      "bias_dB": 6.133405133779135e-07,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-05,
+      "atol_W": 1.0000000000000001e-11,
+      "rhs_evaluations_20m": 343
+     },
+     {
+      "rmse_dB": 3.868959206845214e-08,
+      "max_abs_dB": 5.506314337822005e-08,
+      "bias_dB": 3.548722331547793e-08,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-06,
+      "atol_W": 1e-12,
+      "rhs_evaluations_20m": 547
+     },
+     {
+      "rmse_dB": 2.36893841588415e-09,
+      "max_abs_dB": 3.6424943061774684e-09,
+      "bias_dB": 2.1655285564747827e-09,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-07,
+      "atol_W": 9.999999999999999e-14,
+      "rhs_evaluations_20m": 938
+     },
+     {
+      "rmse_dB": 1.342560468501297e-10,
+      "max_abs_dB": 2.0341772710708028e-10,
+      "bias_dB": 1.2273626559533568e-10,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-08,
+      "atol_W": 1e-14,
+      "rhs_evaluations_20m": 1599
+     },
+     {
+      "rmse_dB": 8.23583834292198e-12,
+      "max_abs_dB": 1.3375967000683886e-11,
+      "bias_dB": 7.368172738608792e-12,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-09,
+      "atol_W": 1e-15,
+      "rhs_evaluations_20m": 2782
+     },
+     {
+      "rmse_dB": 6.439465739942968e-13,
+      "max_abs_dB": 1.2363443602225743e-12,
+      "bias_dB": 4.532152431124814e-13,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-10,
+      "atol_W": 1e-16,
+      "rhs_evaluations_20m": 4830
+     },
+     {
+      "rmse_dB": 2.417354243849234e-13,
+      "max_abs_dB": 7.487344078072056e-13,
+      "bias_dB": -2.62456723021387e-14,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-11,
+      "atol_W": 9.999999999999999e-18,
+      "rhs_evaluations_20m": 8550
+     },
+     {
+      "rmse_dB": 2.3047359337449906e-13,
+      "max_abs_dB": 7.540634783254063e-13,
+      "bias_dB": -1.0362821711851211e-13,
+      "n_points": 20,
+      "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+      "rtol": 1e-12,
+      "atol_W": 9.999999999999999e-19,
+      "rhs_evaluations_20m": 15052
+     }
+    ]
+   }
+  },
+  "tolerance_study_LSODA_fixed_atol_1e-16W": [
+   {
+    "rmse_dB": 0.0009655012677585468,
+    "max_abs_dB": 0.001250144642103379,
+    "bias_dB": 0.0009364875158462515,
+    "n_points": 20,
+    "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+    "rtol": 0.0001,
+    "atol_W": 1e-16
+   },
+   {
+    "rmse_dB": 0.00010720925917332425,
+    "max_abs_dB": 0.0001707189740791648,
+    "bias_dB": 9.836500880373577e-05,
+    "n_points": 20,
+    "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+    "rtol": 1e-05,
+    "atol_W": 1e-16
+   },
+   {
+    "rmse_dB": 1.0988733617464314e-05,
+    "max_abs_dB": 1.6172336323450054e-05,
+    "bias_dB": 9.877970723404239e-06,
+    "n_points": 20,
+    "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+    "rtol": 1e-06,
+    "atol_W": 1e-16
+   },
+   {
+    "rmse_dB": 8.72033796709272e-07,
+    "max_abs_dB": 1.3020109790318202e-06,
+    "bias_dB": 5.440293226355308e-07,
+    "n_points": 20,
+    "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+    "rtol": 1e-07,
+    "atol_W": 1e-16
+   },
+   {
+    "rmse_dB": 1.0855995355674081e-07,
+    "max_abs_dB": 2.0875092943128948e-07,
+    "bias_dB": 7.0144909880554e-08,
+    "n_points": 20,
+    "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+    "rtol": 1e-08,
+    "atol_W": 1e-16
+   },
+   {
+    "rmse_dB": 9.347648679237835e-09,
+    "max_abs_dB": 1.6433233440693584e-08,
+    "bias_dB": 7.1378793320420185e-09,
+    "n_points": 20,
+    "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+    "rtol": 1e-09,
+    "atol_W": 1e-16
+   },
+   {
+    "rmse_dB": 1.7388302154579662e-09,
+    "max_abs_dB": 3.042529783670034e-09,
+    "bias_dB": 1.8255310596515528e-10,
+    "n_points": 20,
+    "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+    "rtol": 1e-10,
+    "atol_W": 1e-16
+   },
+   {
+    "rmse_dB": 3.465324868757022e-10,
+    "max_abs_dB": 5.349711784674582e-10,
+    "bias_dB": 3.3630003226647886e-10,
+    "n_points": 20,
+    "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+    "rtol": 1e-11,
+    "atol_W": 1e-16
+   },
+   {
+    "rmse_dB": 1.0044074070770115e-10,
+    "max_abs_dB": 1.5513990092586027e-10,
+    "bias_dB": 7.681202340847903e-11,
+    "n_points": 20,
+    "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+    "rtol": 1e-12,
+    "atol_W": 1e-16
+   }
+  ],
+  "eq5_root_finding_bound_dB": 2.7354646831885477e-12,
+  "residual_floor_origin": {
+   "models.edfa_saleh_minus_cancellation_free_eq5": {
+    "rmse_dB": 2.303309689746208e-13,
+    "max_abs_dB": 7.611689056830073e-13,
+    "bias_dB": 1.0405010186786968e-13,
+    "n_points": 20,
+    "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)"
+   },
+   "Radau_rtol1e-12_minus_cancellation_free_eq5": {
+    "rmse_dB": 1.3487816187407085e-14,
+    "max_abs_dB": 4.263256414560601e-14,
+    "bias_dB": 4.2188474935755947e-16,
+    "n_points": 20,
+    "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)"
+   },
+   "conclusion": "the floor of about 2e-13 dB in panel b is the precision of models.edfa_saleh (root finding for Q_out), not of the integrators"
+  },
+  "interpretation": "residual between two solutions of identical ASE-free equations; it follows the integrator tolerance and says nothing about the accuracy of either model for a real amplifier",
+  "ase_indication_not_plotted": {
+   "model": "edfa_multipass.solve, single pass, 800 nodes, forward/backward lumped ASE channel at 1550 nm",
+   "status": "indicative only, not plotted (not clean: depends on the assumed lumped band, no spectral data in the card)",
+   "sweep_solver_ASE_off_minus_eq5": {
+    "rmse_dB": 0.00016943603093868385,
+    "max_abs_dB": 0.000268431023631166,
+    "bias_dB": -0.00013391283851988957,
+    "n_points": 20,
+    "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length), 800 nodes"
+   },
+   "10 nm (1545-1555 nm)": {
+    "rmse_dB": 0.1101177527361743,
+    "max_abs_dB": 0.280063104281183,
+    "bias_dB": 0.06624773935777302,
+    "n_points": 20,
+    "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+    "at_10m_dB": 0.012859847793656343,
+    "at_15m_dB": 0.09802813994714299,
+    "at_20m_dB": 0.280063104281183
+   },
+   "30 nm (1535-1565 nm, solver default)": {
+    "rmse_dB": 0.31436734425853813,
+    "max_abs_dB": 0.7908686277711325,
+    "bias_dB": 0.19048605080638012,
+    "n_points": 20,
+    "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+    "at_10m_dB": 0.03842265698323999,
+    "at_15m_dB": 0.2863412779048957,
+    "at_20m_dB": 0.7908686277711325
+   },
+   "50 nm (1525-1575 nm)": {
+    "rmse_dB": 0.5006980466594688,
+    "max_abs_dB": 1.2475255430110224,
+    "bias_dB": 0.3053389556891547,
+    "n_points": 20,
+    "grid": "20 fiber lengths, 1 to 20 m in 1 m steps (one integration per length)",
+    "at_10m_dB": 0.06378463562333181,
+    "at_15m_dB": 0.46527232521319917,
+    "at_20m_dB": 1.2475255430110224
+   }
+  }
+ },
+ "SOA": {
+  "120 mA": {
+   "calibration_from_numerical_model": {
+    "N_unsaturated_m-3": 2.2922990202159778e+24,
+    "tau_d_ns": 0.2949598411679342,
+    "G0_dB_net_including_internal_loss": 18.039698658409616,
+    "G0_dB_material_only": 28.462766224087655,
+    "Psat_internal_dBm": 11.208557270627821,
+    "Esat_pJ": 3.8959970359566083,
+    "note": "G0 and tau_d are computed from the card through the carrier equation of the numerical model at zero signal power; the closed form therefore agrees with the numerical model at small signal by construction"
+   },
+   "small_signal_gain_dB": {
+    "numerical": 18.036449067527805,
+    "intermediate": 18.036449264153095,
+    "closed form": 18.03763890803078,
+    "at": "-40 dBm input"
+   },
+   "deviation": {
+    "total (closed form - numerical)": {
+     "-40 to -20 dBm": {
+      "rmse_dB": 0.04073566917370981,
+      "max_abs_dB": 0.11150325134036265,
+      "bias_dB": 0.02635114860952487,
+      "n_points": 21,
+      "grid": "input power -40 to +5 dBm, 1 dB steps, window -40 to -20 dBm"
+     },
+     "-40 to -10 dBm": {
+      "rmse_dB": 0.2464509055541553,
+      "max_abs_dB": 0.7433687398951445,
+      "bias_dB": 0.14150198358947802,
+      "n_points": 31,
+      "grid": "input power -40 to +5 dBm, 1 dB steps, window -40 to -10 dBm"
+     },
+     "-40 to +5 dBm": {
+      "rmse_dB": 1.2057370029910859,
+      "max_abs_dB": 3.174773625964745,
+      "bias_dB": 0.7321492707157474,
+      "n_points": 46,
+      "grid": "input power -40 to +5 dBm, 1 dB steps, window -40 to +5 dBm"
+     },
+     "at_input_dBm": {
+      "-40": 0.0011898405029739934,
+      "-30": 0.011825070798394677,
+      "-20": 0.11150325134036265,
+      "-10": 0.7433687398951445,
+      "+0": 2.261262538223363,
+      "+5": 3.174773625964745
+     }
+    },
+    "internal-loss part (closed form - intermediate)": {
+     "-40 to -20 dBm": {
+      "rmse_dB": 0.040293633105911095,
+      "max_abs_dB": 0.10988388220911105,
+      "bias_dB": 0.026131489208107473,
+      "n_points": 21,
+      "grid": "input power -40 to +5 dBm, 1 dB steps, window -40 to -20 dBm"
+     },
+     "-40 to -10 dBm": {
+      "rmse_dB": 0.2326826195016471,
+      "max_abs_dB": 0.6907191289598487,
+      "bias_dB": 0.13513470024924062,
+      "n_points": 31,
+      "grid": "input power -40 to +5 dBm, 1 dB steps, window -40 to -10 dBm"
+     },
+     "-40 to +5 dBm": {
+      "rmse_dB": 1.0655409455157332,
+      "max_abs_dB": 2.777337032862496,
+      "bias_dB": 0.6549607635748039,
+      "n_points": 46,
+      "grid": "input power -40 to +5 dBm, 1 dB steps, window -40 to +5 dBm"
+     },
+     "at_input_dBm": {
+      "-40": 0.0011896438776837215,
+      "-30": 0.011805816331971641,
+      "-20": 0.10988388220911105,
+      "-10": 0.6907191289598487,
+      "+0": 1.9911023456011954,
+      "+5": 2.777337032862496
+     }
+    },
+    "recombination part (intermediate - numerical)": {
+     "-40 to -20 dBm": {
+      "rmse_dB": 0.00046623139166013824,
+      "max_abs_dB": 0.0016193691312516023,
+      "bias_dB": 0.00021965940141739572,
+      "n_points": 21,
+      "grid": "input power -40 to +5 dBm, 1 dB steps, window -40 to -20 dBm"
+     },
+     "-40 to -10 dBm": {
+      "rmse_dB": 0.014292834893090226,
+      "max_abs_dB": 0.052649610935295854,
+      "bias_dB": 0.006367283340237392,
+      "n_points": 31,
+      "grid": "input power -40 to +5 dBm, 1 dB steps, window -40 to -10 dBm"
+     },
+     "-40 to +5 dBm": {
+      "rmse_dB": 0.141414647419835,
+      "max_abs_dB": 0.397436593102249,
+      "bias_dB": 0.07718850714094368,
+      "n_points": 46,
+      "grid": "input power -40 to +5 dBm, 1 dB steps, window -40 to +5 dBm"
+     },
+     "at_input_dBm": {
+      "-40": 1.9662529027186793e-07,
+      "-30": 1.925446642303541e-05,
+      "-20": 0.0016193691312516023,
+      "-10": 0.052649610935295854,
+      "+0": 0.2701601926221677,
+      "+5": 0.397436593102249
+     }
+    }
+   },
+   "share_of_total_at_0dBm": {
+    "internal loss": 0.8805268348741018,
+    "recombination": 0.11947316512589828
+   },
+   "share_of_total_rmse_-40_to_+5dBm": {
+    "internal loss": 0.8837258397747049,
+    "recombination": 0.1172848200470136
+   },
+   "compression_3dB": {
+    "numerical": {
+     "input_dBm": -8.040779113472778,
+     "output_dBm": 6.9988870354851915
+    },
+    "intermediate": {
+     "input_dBm": -7.848925332541879,
+     "output_dBm": 7.19074081690239
+    },
+    "closed form": {
+     "input_dBm": -5.299456786856316,
+     "output_dBm": 9.740221264221619
+    }
+   },
+   "code_verification_linear_R_no_loss_vs_eq8": {
+    "rmse_dB": 4.262947220905812e-09,
+    "max_abs_dB": 6.093042514976332e-09,
+    "bias_dB": 3.79732763108272e-09,
+    "n_points": 46,
+    "grid": "input power -40 to +5 dBm, 1 dB steps"
+   },
+   "numerical_model_output_at_0dBm_input": {
+    "P_out_dBm": 10.247919486344468,
+    "N_m-3": 1.7731844668049908e+24,
+    "N_change_vs_unsaturated": -0.22646022566553148,
+    "tau_d_ns": 0.38183342169932366
+   }
+  },
+  "150 mA": {
+   "calibration_from_numerical_model": {
+    "N_unsaturated_m-3": 2.576619029086833e+24,
+    "tau_d_ns": 0.2608704577251881,
+    "G0_dB_net_including_internal_loss": 25.44841531524738,
+    "G0_dB_material_only": 35.87148288092543,
+    "Psat_internal_dBm": 11.741937175924493,
+    "Esat_pJ": 3.8959970359566083,
+    "note": "G0 and tau_d are computed from the card through the carrier equation of the numerical model at zero signal power; the closed form therefore agrees with the numerical model at small signal by construction"
+   },
+   "small_signal_gain_dB": {
+    "numerical": 25.43411978723311,
+    "intermediate": 25.434124540355732,
+    "closed form": 25.438272126693974,
+    "at": "-40 dBm input"
+   },
+   "deviation": {
+    "total (closed form - numerical)": {
+     "-40 to -20 dBm": {
+      "rmse_dB": 0.12529556898129673,
+      "max_abs_dB": 0.32856739578186733,
+      "bias_dB": 0.0834383555267212,
+      "n_points": 21,
+      "grid": "input power -40 to +5 dBm, 1 dB steps, window -40 to -20 dBm"
+     },
+     "-40 to -10 dBm": {
+      "rmse_dB": 0.5122629475529973,
+      "max_abs_dB": 1.350154394355446,
+      "bias_dB": 0.32358636487817966,
+      "n_points": 31,
+      "grid": "input power -40 to +5 dBm, 1 dB steps, window -40 to -10 dBm"
+     },
+     "-40 to +5 dBm": {
+      "rmse_dB": 1.5254412273094706,
+      "max_abs_dB": 3.51813973549865,
+      "bias_dB": 1.0300139560113106,
+      "n_points": 46,
+      "grid": "input power -40 to +5 dBm, 1 dB steps, window -40 to +5 dBm"
+     },
+     "at_input_dBm": {
+      "-40": 0.004152339460862464,
+      "-30": 0.04049723484013157,
+      "-20": 0.32856739578186733,
+      "-10": 1.350154394355446,
+      "+0": 2.7758934626960112,
+      "+5": 3.51813973549865
+     }
+    },
+    "internal-loss part (closed form - intermediate)": {
+     "-40 to -20 dBm": {
+      "rmse_dB": 0.11852963728468108,
+      "max_abs_dB": 0.3055731905034129,
+      "bias_dB": 0.07986407811788153,
+      "n_points": 21,
+      "grid": "input power -40 to +5 dBm, 1 dB steps, window -40 to -20 dBm"
+     },
+     "-40 to -10 dBm": {
+      "rmse_dB": 0.44300487469627586,
+      "max_abs_dB": 1.1374150039041986,
+      "bias_dB": 0.28596018802918727,
+      "n_points": 31,
+      "grid": "input power -40 to +5 dBm, 1 dB steps, window -40 to -10 dBm"
+     },
+     "-40 to +5 dBm": {
+      "rmse_dB": 1.264588975114144,
+      "max_abs_dB": 2.911965038638032,
+      "bias_dB": 0.8636855545263633,
+      "n_points": 46,
+      "grid": "input power -40 to +5 dBm, 1 dB steps, window -40 to +5 dBm"
+     },
+     "at_input_dBm": {
+      "-40": 0.004147586338241638,
+      "-30": 0.04005923399321176,
+      "-20": 0.3055731905034129,
+      "-10": 1.1374150039041986,
+      "+0": 2.2863438163893086,
+      "+5": 2.911965038638032
+     }
+    },
+    "recombination part (intermediate - numerical)": {
+     "-40 to -20 dBm": {
+      "rmse_dB": 0.0070721376135220925,
+      "max_abs_dB": 0.022994205278454416,
+      "bias_dB": 0.003574277408839675,
+      "n_points": 21,
+      "grid": "input power -40 to +5 dBm, 1 dB steps, window -40 to -20 dBm"
+     },
+     "-40 to -10 dBm": {
+      "rmse_dB": 0.07068752139108117,
+      "max_abs_dB": 0.21273939045124735,
+      "bias_dB": 0.03762617684899241,
+      "n_points": 31,
+      "grid": "input power -40 to +5 dBm, 1 dB steps, window -40 to -10 dBm"
+     },
+     "-40 to +5 dBm": {
+      "rmse_dB": 0.261718146142928,
+      "max_abs_dB": 0.6061746968606183,
+      "bias_dB": 0.16632840148494707,
+      "n_points": 46,
+      "grid": "input power -40 to +5 dBm, 1 dB steps, window -40 to +5 dBm"
+     },
+     "at_input_dBm": {
+      "-40": 4.753122620826389e-06,
+      "-30": 0.000438000846919806,
+      "-20": 0.022994205278454416,
+      "-10": 0.21273939045124735,
+      "+0": 0.4895496463067026,
+      "+5": 0.6061746968606183
+     }
+    }
+   },
+   "share_of_total_at_0dBm": {
+    "internal loss": 0.8236424946109997,
+    "recombination": 0.17635750538900033
+   },
+   "share_of_total_rmse_-40_to_+5dBm": {
+    "internal loss": 0.8289988184891197,
+    "recombination": 0.17156881658727616
+   },
+   "compression_3dB": {
+    "numerical": {
+     "input_dBm": -14.447849077739574,
+     "output_dBm": 8.000422935778461
+    },
+    "intermediate": {
+     "input_dBm": -14.211959322424601,
+     "output_dBm": 8.236312691560869
+    },
+    "closed form": {
+     "input_dBm": -12.288074712071593,
+     "output_dBm": 10.160238937443031
+    }
+   },
+   "code_verification_linear_R_no_loss_vs_eq8": {
+    "rmse_dB": 4.157433575427408e-09,
+    "max_abs_dB": 6.983533751281357e-09,
+    "bias_dB": 3.472216485348504e-09,
+    "n_points": 46,
+    "grid": "input power -40 to +5 dBm, 1 dB steps"
+   },
+   "numerical_model_output_at_0dBm_input": {
+    "P_out_dBm": 12.700758171267116,
+    "N_m-3": 1.752085027505686e+24,
+    "N_change_vs_unsaturated": -0.3200061756407062,
+    "tau_d_ns": 0.38630660436184466
+   }
+  }
+ },
+ "RAMAN": {
+  "C_R_per_W_km": 0.40625000000000006,
+  "L_eff_km": 16.39489233822475,
+  "on_off_gain_undepleted_dB": 14.46292915008685,
+  "span_loss_signal_dB": 9.5,
+  "cases": {
+   "single weak channel": {
+    "rmse_dB": 0.006321406354987214,
+    "max_abs_dB": 0.012014879641964349,
+    "bias_dB": 0.00505527174462066,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -10.0,
+    "bvp_status": 0,
+    "span_output_error_dB": 0.012014879641964349,
+    "net_gain_bvp_dB": 4.950914270444883,
+    "net_gain_closed_form_dB": 4.962929150086848,
+    "residual_pump_at_z0_bvp_dBm": 14.480727676652839,
+    "residual_pump_at_z0_closed_form_dBm": 14.489700043360186,
+    "position_of_max_abs_km": 50.0
+   },
+   "lumped load": {
+    "rmse_dB": 1.3655144293531518,
+    "max_abs_dB": 2.581576254241238,
+    "bias_dB": 1.0963962996306589,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": 16.0,
+    "bvp_status": 0,
+    "span_output_error_dB": 2.581576254241238,
+    "net_gain_bvp_dB": 2.3813528958456125,
+    "net_gain_closed_form_dB": 4.96292915008685,
+    "residual_pump_at_z0_bvp_dBm": 11.826493098754938,
+    "residual_pump_at_z0_closed_form_dBm": 14.489700043360186,
+    "position_of_max_abs_km": 50.0
+   }
+  },
+  "lumped_load_check": {
+   "channels": "40, equally spaced in frequency over 1530-1565 nm",
+   "profile": "data/raman_ssmf_gnpy.csv",
+   "offset_of_1550nm_from_pump_THz": 13.33893027808675,
+   "efficiency_relative_to_1550nm_mean": 0.952129189823767,
+   "min": 0.672006443178255,
+   "max": 1.0192726147719822
+  },
+  "launch_power_sweep": [
+   {
+    "rmse_dB": 6.334991709050606e-06,
+    "max_abs_dB": 1.2042232938824782e-05,
+    "bias_dB": 5.065755559438092e-06,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -40.0,
+    "span_output_error_dB": 1.2042232938824782e-05,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 7.975278960510496e-06,
+    "max_abs_dB": 1.516026758707767e-05,
+    "bias_dB": 6.377405975821316e-06,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -39.0,
+    "span_output_error_dB": 1.516026758707767e-05,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 1.0040275666327676e-05,
+    "max_abs_dB": 1.90856354151947e-05,
+    "bias_dB": 8.02867401227815e-06,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -38.0,
+    "span_output_error_dB": 1.90856354151947e-05,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 1.2639948376412398e-05,
+    "max_abs_dB": 2.4027372433010896e-05,
+    "bias_dB": 1.010749412791992e-05,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -37.0,
+    "span_output_error_dB": 2.4027372433010896e-05,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 1.591273588939514e-05,
+    "max_abs_dB": 3.0248637589380678e-05,
+    "bias_dB": 1.2724568565654775e-05,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -36.0,
+    "span_output_error_dB": 3.0248637589380678e-05,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 2.003292089700661e-05,
+    "max_abs_dB": 3.8080725548894634e-05,
+    "bias_dB": 1.6019262082012485e-05,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -35.0,
+    "span_output_error_dB": 3.8080725548894634e-05,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 2.5219910112707627e-05,
+    "max_abs_dB": 4.794070709834841e-05,
+    "bias_dB": 2.0167022824884407e-05,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -34.0,
+    "span_output_error_dB": 4.794070709834841e-05,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 3.1749916652870976e-05,
+    "max_abs_dB": 6.035363607637123e-05,
+    "bias_dB": 2.538872417083217e-05,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -33.0,
+    "span_output_error_dB": 6.035363607637123e-05,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 3.9970666623457266e-05,
+    "max_abs_dB": 7.598050483537122e-05,
+    "bias_dB": 3.1962424889521e-05,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -32.0,
+    "span_output_error_dB": 7.598050483537122e-05,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 5.0319912361256284e-05,
+    "max_abs_dB": 9.56534355225358e-05,
+    "bias_dB": 4.023817338068263e-05,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -31.0,
+    "span_output_error_dB": 9.56534355225358e-05,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 6.334873736538166e-05,
+    "max_abs_dB": 0.00012041997959855166,
+    "bias_dB": 5.065664362721192e-05,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -30.0,
+    "span_output_error_dB": 0.00012041997959855166,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 7.975089221161722e-05,
+    "max_abs_dB": 0.0001515988809437374,
+    "bias_dB": 6.377259399483327e-05,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -29.0,
+    "span_output_error_dB": 0.0001515988809437374,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.00010039972186678163,
+    "max_abs_dB": 0.00019085026888276957,
+    "bias_dB": 8.028439665433754e-05,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -28.0,
+    "span_output_error_dB": 0.00019085026888276957,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.0001263946462586405,
+    "max_abs_dB": 0.00024026400893717437,
+    "bias_dB": 0.00010107120670155788,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -27.0,
+    "span_output_error_dB": 0.00024026400893717437,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.00015911966430268943,
+    "max_abs_dB": 0.00030247090739621285,
+    "bias_dB": 0.0001272397463146771,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -26.0,
+    "span_output_error_dB": 0.00030247090739621285,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.00020031698645964902,
+    "max_abs_dB": 0.0003807826691932803,
+    "bias_dB": 0.0001601831873868761,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -25.0,
+    "span_output_error_dB": 0.0003807826691932803,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.0002521797023797902,
+    "max_abs_dB": 0.0004793680340853257,
+    "bias_dB": 0.00020165525707690874,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -24.0,
+    "span_output_error_dB": 0.0004793680340853257,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.00031746839465806085,
+    "max_abs_dB": 0.0006034744221210531,
+    "bias_dB": 0.00025386349412144223,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -23.0,
+    "span_output_error_dB": 0.0006034744221210531,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.0003996578699973644,
+    "max_abs_dB": 0.0007597068146232289,
+    "bias_dB": 0.0003195865922834073,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -22.0,
+    "span_output_error_dB": 0.0007597068146232289,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.0005031217622980955,
+    "max_abs_dB": 0.0009563786008612851,
+    "bias_dB": 0.00040232203413824723,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -21.0,
+    "span_output_error_dB": 0.0009563786008612851,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.000633364742480637,
+    "max_abs_dB": 0.0012039528827969548,
+    "bias_dB": 0.0005064718028242638,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -20.0,
+    "span_output_error_dB": 0.0012039528827969548,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.0007973145495026451,
+    "max_abs_dB": 0.0015155974328902033,
+    "bias_dB": 0.0006375759450600024,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -19.0,
+    "span_output_error_dB": 0.0015155974328902033,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.001003689155130083,
+    "max_abs_dB": 0.0019078823761820018,
+    "bias_dB": 0.0008026062386768295,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -18.0,
+    "span_output_error_dB": 0.0019078823761820018,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.0012634582361798505,
+    "max_abs_dB": 0.0024016569887734818,
+    "bias_dB": 0.001010335310977824,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -17.0,
+    "span_output_error_dB": 0.0024016569887734818,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.0015904229256060672,
+    "max_abs_dB": 0.003023151090051357,
+    "bias_dB": 0.001271800398988896,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -16.0,
+    "span_output_error_dB": 0.003023151090051357,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.002001943770710401,
+    "max_abs_dB": 0.0038053577739134425,
+    "bias_dB": 0.0016008857189703588,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -15.0,
+    "span_output_error_dB": 0.0038053577739134425,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.002519854153934982,
+    "max_abs_dB": 0.004789768078763856,
+    "bias_dB": 0.002015053292083044,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -14.0,
+    "span_output_error_dB": 0.004789768078763856,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.0031716054471160235,
+    "max_abs_dB": 0.0060285451913042465,
+    "bias_dB": 0.002536259314692867,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -13.0,
+    "span_output_error_dB": 0.0060285451913042465,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.003991701113408052,
+    "max_abs_dB": 0.007587246380145629,
+    "bias_dB": 0.0031921019657344648,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -12.0,
+    "span_output_error_dB": 0.007587246380145629,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.005023490200409615,
+    "max_abs_dB": 0.009548225680036104,
+    "bias_dB": 0.004017257198984854,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -11.0,
+    "span_output_error_dB": 0.009548225680036104,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.006321406354987214,
+    "max_abs_dB": 0.012014879641964349,
+    "bias_dB": 0.00505527174462066,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -10.0,
+    "span_output_error_dB": 0.012014879641964349,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.007953756835273428,
+    "max_abs_dB": 0.015116932539604555,
+    "bias_dB": 0.006360797411002582,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -9.0,
+    "span_output_error_dB": 0.015116932539604555,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.010006186792767133,
+    "max_abs_dB": 0.01901699566376669,
+    "bias_dB": 0.008002367726947469,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -8.0,
+    "span_output_error_dB": 0.01901699566376669,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.0125859668183862,
+    "max_abs_dB": 0.023918676559080865,
+    "bias_dB": 0.010065836620486393,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -7.0,
+    "span_output_error_dB": 0.023918676559080865,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.015827274856723778,
+    "max_abs_dB": 0.030076554846703685,
+    "bias_dB": 0.012658618089907986,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -6.0,
+    "span_output_error_dB": 0.030076554846703685,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.019858774765913984,
+    "max_abs_dB": 0.03774468616943512,
+    "bias_dB": 0.01588156030668258,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -5.0,
+    "span_output_error_dB": 0.03774468616943512,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.024944821155835326,
+    "max_abs_dB": 0.04740990121868016,
+    "bias_dB": 0.019949497450153224,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -4.0,
+    "span_output_error_dB": 0.04740990121868016,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.031315742664275434,
+    "max_abs_dB": 0.05951589808062696,
+    "bias_dB": 0.02504539191732426,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -3.0,
+    "span_output_error_dB": 0.05951589808062696,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.039286131790897336,
+    "max_abs_dB": 0.07465976651720752,
+    "bias_dB": 0.03142109253515285,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -2.0,
+    "span_output_error_dB": 0.07465976651720752,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.049242066170383895,
+    "max_abs_dB": 0.09357398353104962,
+    "bias_dB": 0.03938576591063576,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": -1.0,
+    "span_output_error_dB": 0.09357398353104962,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.06165435892781254,
+    "max_abs_dB": 0.11715134517905579,
+    "bias_dB": 0.04931657127623531,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": 0.0,
+    "span_output_error_dB": 0.11715134517905579,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.07709268231367447,
+    "max_abs_dB": 0.14647144023300918,
+    "bias_dB": 0.061670069956589184,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": 1.0,
+    "span_output_error_dB": 0.14647144023300918,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.09623973925846249,
+    "max_abs_dB": 0.18282705279732436,
+    "bias_dB": 0.07699372244370736,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": 2.0,
+    "span_output_error_dB": 0.18282705279732436,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.11990417662258016,
+    "max_abs_dB": 0.2277479583005091,
+    "bias_dB": 0.09593644319234207,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": 3.0,
+    "span_output_error_dB": 0.2277479583005091,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.1490304013885721,
+    "max_abs_dB": 0.2830185589184371,
+    "bias_dB": 0.11925675682930774,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": 4.0,
+    "span_output_error_dB": 0.2830185589184371,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.18467158516860951,
+    "max_abs_dB": 0.3506272876914096,
+    "bias_dB": 0.14780148302937882,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": 5.0,
+    "span_output_error_dB": 0.3506272876914096,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.22807239406808472,
+    "max_abs_dB": 0.43291697113652994,
+    "bias_dB": 0.1825726047473855,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": 6.0,
+    "span_output_error_dB": 0.43291697113652994,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.28053989615698455,
+    "max_abs_dB": 0.5323448114275653,
+    "bias_dB": 0.22462414687423812,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": 7.0,
+    "span_output_error_dB": 0.5323448114275653,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.34347136262328803,
+    "max_abs_dB": 0.6515306052342034,
+    "bias_dB": 0.27508488863354086,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": 8.0,
+    "span_output_error_dB": 0.6515306052342034,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.41828462031479613,
+    "max_abs_dB": 0.7931213805270421,
+    "bias_dB": 0.3351033478417557,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": 9.0,
+    "span_output_error_dB": 0.7931213805270421,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.5063580514078461,
+    "max_abs_dB": 0.9596905710379922,
+    "bias_dB": 0.4057972353941986,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": 10.0,
+    "span_output_error_dB": 0.9596905710379922,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.6089463765193532,
+    "max_abs_dB": 1.1535700589129565,
+    "bias_dB": 0.488186858514869,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": 11.0,
+    "span_output_error_dB": 1.1535700589129565,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.7271102232258807,
+    "max_abs_dB": 1.3767250628980428,
+    "bias_dB": 0.5831359040590015,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": 12.0,
+    "span_output_error_dB": 1.3767250628980428,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 0.8616071633876407,
+    "max_abs_dB": 1.6305839171463816,
+    "bias_dB": 0.6912561561329934,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": 13.0,
+    "span_output_error_dB": 1.6305839171463816,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 1.012888143327863,
+    "max_abs_dB": 1.9160172580387993,
+    "bias_dB": 0.8129034895414805,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": 14.0,
+    "span_output_error_dB": 1.9160172580387993,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 1.180967194849782,
+    "max_abs_dB": 2.233160588769426,
+    "bias_dB": 0.9480582559063253,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": 15.0,
+    "span_output_error_dB": 2.233160588769426,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 1.3655144293531518,
+    "max_abs_dB": 2.581576254241238,
+    "bias_dB": 1.0963962996306589,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": 16.0,
+    "span_output_error_dB": 2.581576254241238,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 1.5657256238302961,
+    "max_abs_dB": 2.9600989132624314,
+    "bias_dB": 1.2571639445513176,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": 17.0,
+    "span_output_error_dB": 2.9600989132624314,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 1.7803648076245078,
+    "max_abs_dB": 3.3669401887663497,
+    "bias_dB": 1.4292018555693144,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": 18.0,
+    "span_output_error_dB": 3.3669401887663497,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 2.0078446836423067,
+    "max_abs_dB": 3.799913541587852,
+    "bias_dB": 1.6109915607663836,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": 19.0,
+    "span_output_error_dB": 3.799913541587852,
+    "bvp_status": 0
+   },
+   {
+    "rmse_dB": 2.246514853038886,
+    "max_abs_dB": 4.256700042191106,
+    "bias_dB": 1.8009288922112514,
+    "n_points": 401,
+    "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+    "launch_dBm": 20.0,
+    "span_output_error_dB": 4.256700042191106,
+    "bvp_status": 0
+   }
+  ],
+  "code_verification_bvp_without_depletion": {
+   "rmse_dB": 5.337650385208939e-12,
+   "max_abs_dB": 1.3454126701617497e-11,
+   "bias_dB": 3.87785785749162e-12,
+   "n_points": 401,
+   "grid": "401 equally spaced positions from 0 to 50 km (125 m spacing)",
+   "bvp_status": 0,
+   "final_mesh_nodes": 401,
+   "launch_dBm": 16.0,
+   "initial_guess": "flat (constant powers)"
+  },
+  "linearity_check": {
+   "output_error_-40dBm_dB": 1.2042232938824782e-05,
+   "output_error_-30dBm_dB": 0.00012041997959855166,
+   "ratio": 9.999804870931488,
+   "implied_numerical_offset_dB": 2.610877440171559e-10,
+   "note": "the deviation is proportional to the launch power at low power (first-order pump depletion), so it is model-form; any numerical offset of the BVP is bounded by the implied offset"
+  }
+ },
+ "runtime_s": 26.6
+}

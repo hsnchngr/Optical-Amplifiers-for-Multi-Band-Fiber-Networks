@@ -1,0 +1,745 @@
+{
+ "figure": "Fig06_literature_records",
+ "script": "fig04_fig10_benchmark.py",
+ "data_files": [
+  "data/table2_records.csv",
+  "data/donodin2025_fig3ef_digitized.csv"
+ ],
+ "convention": "x = width of the widest gap-free interval meeting the stated criterion at the stated operating point [THz]; y = lower bound of the gain inside that interval implied by the criterion [dB]",
+ "marker_fill": "filled = operating conditions complete in an accessible full text, preprint or accepted manuscript; open = conditions incomplete or only an abstract accessible",
+ "point_labels": "first author and year of the source (key source_labels); letters a, b separate two sources with the same first author and year, in the order of table2_records.csv (= order of Table 2)",
+ "source_labels": {
+  "[34]": "Chen 2019",
+  "[82]": "Taengnoi 2021",
+  "[70]": "de Moura 2021",
+  "[80]": "G\u00fcrkaynak 2021",
+  "[74]": "Donodin 2022",
+  "[36]": "Donodin 2024a",
+  "[72]": "Hazarika 2022a",
+  "[71]": "Hazarika 2022b",
+  "[83]": "Zhai 2022",
+  "[81]": "G\u00fcrkaynak 2022",
+  "[66]": "Zhai 2023",
+  "[76]": "Donodin 2024b",
+  "[17]": "Zhai 2024",
+  "[22]": "Tang 2024",
+  "[77]": "Donodin 2025a",
+  "[75]": "Alyshev 2025",
+  "[69]": "Donodin 2025b",
+  "[73]": "Pratiwi 2026",
+  "[19]": "F. Wang 2026",
+  "[78]": "C. Wang 2026",
+  "[79]": "Mikhailov 2026"
+ },
+ "n_rows": 39,
+ "n_sources": 21,
+ "n_plotted": 22,
+ "n_filled": 13,
+ "n_open": 9,
+ "rows_by_source_access": {
+  "abstract + companion full text (Puttnam et al., JLT 43, 10371, 2025)": 1,
+  "abstract + dataset read-me": 1,
+  "abstract + preprint (Research Square rs-268443/v1); version of record not read": 2,
+  "abstract + thesis chapter (Hazarika PhD thesis, Aston 2023, Sec. 6.2); OFC full text not read": 1,
+  "abstract only": 9,
+  "abstract only + dataset read-me": 1,
+  "accepted manuscript": 2,
+  "full text": 10,
+  "full text (CC BY 4.0)": 9,
+  "full text (Table I, read by analyst)": 2,
+  "full text (arXiv v2)": 1
+ },
+ "panel_a_points": [
+  {
+   "row_id": "34",
+   "ref": "[34]",
+   "label": "Chen 2019",
+   "technology": "TDFA",
+   "bw_THz": 0.11,
+   "bw_THz_unc": 0.04,
+   "g_min_dB": 18.7,
+   "filled": true,
+   "span_THz": null,
+   "criterion": "instantaneous amplified band = FBG reflection band; 1628-1655 nm (27 nm, 3.0 THz) is the tuning range",
+   "input_power": "-20 dBm, single channel",
+   "source_access": "full text",
+   "group": "34"
+  },
+  {
+   "row_id": "82",
+   "ref": "[82]",
+   "label": "Taengnoi 2021",
+   "technology": "BDFA",
+   "bw_THz": 6.63,
+   "bw_THz_unc": 0.0,
+   "g_min_dB": 23.0,
+   "filled": false,
+   "span_THz": null,
+   "criterion": "3-dB width as reported (gain 23-26 dB over 1325-1365 nm)",
+   "input_power": "n.s. for gain and bandwidth; NF at -20 dBm",
+   "source_access": "full text",
+   "group": "82"
+  },
+  {
+   "row_id": "80a",
+   "ref": "[80]",
+   "label": "G\u00fcrkaynak 2021",
+   "technology": "Parallel hybrid EDFA/Raman",
+   "bw_THz": 9.8,
+   "bw_THz_unc": 0.0,
+   "g_min_dB": 19.5,
+   "filled": true,
+   "span_THz": null,
+   "criterion": "gain variation <= 3 dB (preprint)",
+   "input_power": "-25 dBm, single swept channel",
+   "source_access": "abstract + preprint (Research Square rs-268443/v1); version of record not read",
+   "group": "80"
+  },
+  {
+   "row_id": "36a",
+   "ref": "[36]",
+   "label": "Donodin 2024a",
+   "technology": "BDFA",
+   "bw_THz": 4.53,
+   "bw_THz_unc": 0.13,
+   "g_min_dB": 36.8,
+   "filled": true,
+   "span_THz": null,
+   "criterion": "3-dB width at the stated input power",
+   "input_power": "-25 dBm, single channel",
+   "source_access": "full text (Table I, read by analyst)",
+   "group": "36"
+  },
+  {
+   "row_id": "36b",
+   "ref": "[36]",
+   "label": "Donodin 2024a",
+   "technology": "BDFA",
+   "bw_THz": 10.8,
+   "bw_THz_unc": 0.3,
+   "g_min_dB": 17.8,
+   "filled": true,
+   "span_THz": null,
+   "criterion": "3-dB width at the stated input power",
+   "input_power": "+5 dBm, single channel",
+   "source_access": "full text (Table I, read by analyst)",
+   "group": "36"
+  },
+  {
+   "row_id": "71a",
+   "ref": "[71]",
+   "label": "Hazarika 2022b",
+   "technology": "Discrete Raman",
+   "bw_THz": 11.69,
+   "bw_THz_unc": 0.4,
+   "g_min_dB": 10.0,
+   "filled": true,
+   "span_THz": 17.15,
+   "criterion": "widest gap-free segment of the loaded 1470-1605 nm grid",
+   "input_power": "fully loaded after 70 km SMF: 16.2 dBm launch, about -5.2 dBm per channel, span loss 14.8 dB",
+   "source_access": "full text",
+   "group": "71"
+  },
+  {
+   "row_id": "83",
+   "ref": "[83]",
+   "label": "Zhai 2022",
+   "technology": "EDFA (Er, Er:Yb)",
+   "bw_THz": 5.44,
+   "bw_THz_unc": 0.0,
+   "g_min_dB": 14.5,
+   "filled": false,
+   "span_THz": null,
+   "criterion": "multichannel band as reported; gain 18.4 +- 3.9 dB",
+   "input_power": "multichannel; power per channel not in the accessible material",
+   "source_access": "abstract only + dataset read-me",
+   "group": "83"
+  },
+  {
+   "row_id": "81a",
+   "ref": "[81]",
+   "label": "G\u00fcrkaynak 2022",
+   "technology": "Parallel hybrid EDFA/Raman",
+   "bw_THz": 10.12,
+   "bw_THz_unc": 0.0,
+   "g_min_dB": 15.5,
+   "filled": false,
+   "span_THz": null,
+   "criterion": "gain variation <= 3 dB",
+   "input_power": "-30 dBm (single channel expected; to confirm)",
+   "source_access": "abstract only",
+   "group": "81"
+  },
+  {
+   "row_id": "66",
+   "ref": "[66]",
+   "label": "Zhai 2023",
+   "technology": "EDFA (Er, Er:Yb)",
+   "bw_THz": 5.25,
+   "bw_THz_unc": 0.0,
+   "g_min_dB": 20.0,
+   "filled": false,
+   "span_THz": null,
+   "criterion": "G > 20 dB",
+   "input_power": "-25 dBm (read-me; single or total not stated)",
+   "source_access": "abstract + dataset read-me",
+   "group": "66"
+  },
+  {
+   "row_id": "76a",
+   "ref": "[76]",
+   "label": "Donodin 2024b",
+   "technology": "Band-split BDFA + discrete Raman",
+   "bw_THz": 10.45,
+   "bw_THz_unc": 0.0,
+   "g_min_dB": 10.5,
+   "filled": true,
+   "span_THz": 25.83,
+   "criterion": "Raman section flat within 3 dB (as stated in the source)",
+   "input_power": "fully loaded 150 x 100 GHz after 70 km SMF",
+   "source_access": "accepted manuscript",
+   "group": "76"
+  },
+  {
+   "row_id": "17a",
+   "ref": "[17]",
+   "label": "Zhai 2024",
+   "technology": "BDFA",
+   "bw_THz": 21.31,
+   "bw_THz_unc": 0.0,
+   "g_min_dB": 20.0,
+   "filled": true,
+   "span_THz": null,
+   "criterion": "G > 20 dB",
+   "input_power": "-23 dBm, single channel (swept 1330-1480 nm)",
+   "source_access": "full text (CC BY 4.0)",
+   "group": "17"
+  },
+  {
+   "row_id": "17b",
+   "ref": "[17]",
+   "label": "Zhai 2024",
+   "technology": "BDFA",
+   "bw_THz": 18.64,
+   "bw_THz_unc": 0.0,
+   "g_min_dB": 24.0,
+   "filled": true,
+   "span_THz": null,
+   "criterion": "6-dB width",
+   "input_power": "-10 dBm, single channel (swept 1330-1480 nm)",
+   "source_access": "full text (CC BY 4.0)",
+   "group": "17"
+  },
+  {
+   "row_id": "17c",
+   "ref": "[17]",
+   "label": "Zhai 2024",
+   "technology": "BDFA",
+   "bw_THz": 21.38,
+   "bw_THz_unc": 0.0,
+   "g_min_dB": 15.5,
+   "filled": true,
+   "span_THz": null,
+   "criterion": "6-dB width",
+   "input_power": "0 dBm, single channel (swept 1330-1480 nm)",
+   "source_access": "full text (CC BY 4.0)",
+   "group": "17"
+  },
+  {
+   "row_id": "17d",
+   "ref": "[17]",
+   "label": "Zhai 2024",
+   "technology": "BDFA",
+   "bw_THz": 8.92,
+   "bw_THz_unc": 0.39,
+   "g_min_dB": 32.0,
+   "filled": true,
+   "span_THz": null,
+   "criterion": "6-dB width at the stated input power (Table 1 of the source; edges not stated)",
+   "input_power": "-23 dBm, single channel (swept 1330-1480 nm)",
+   "source_access": "full text (CC BY 4.0)",
+   "group": "17"
+  },
+  {
+   "row_id": "22b",
+   "ref": "[22]",
+   "label": "Tang 2024",
+   "technology": "SOA",
+   "bw_THz": 16.42,
+   "bw_THz_unc": 0.43,
+   "g_min_dB": 13.5,
+   "filled": true,
+   "span_THz": null,
+   "criterion": "3-dB width in saturated operation (swept 1460-1600 nm)",
+   "input_power": "+6 dBm",
+   "source_access": "full text",
+   "group": "22"
+  },
+  {
+   "row_id": "77a",
+   "ref": "[77]",
+   "label": "Donodin 2025a",
+   "technology": "Doped-fiber hybrid (Bi/Er, Bi/Nd)",
+   "bw_THz": 10.93,
+   "bw_THz_unc": 0.0,
+   "g_min_dB": 20.0,
+   "filled": true,
+   "span_THz": null,
+   "criterion": "G >= 20 dB",
+   "input_power": "-25 dBm, single channel",
+   "source_access": "full text",
+   "group": "77"
+  },
+  {
+   "row_id": "75",
+   "ref": "[75]",
+   "label": "Alyshev 2025",
+   "technology": "BDFA",
+   "bw_THz": 25.64,
+   "bw_THz_unc": 1.17,
+   "g_min_dB": 20.0,
+   "filled": false,
+   "span_THz": null,
+   "criterion": "G >= 20 dB, within the 1260-1480 nm design region",
+   "input_power": "n.s.",
+   "source_access": "abstract only",
+   "group": "75"
+  },
+  {
+   "row_id": "69a",
+   "ref": "[69]",
+   "label": "Donodin 2025b",
+   "technology": "BDFA",
+   "bw_THz": 8.69,
+   "bw_THz_unc": 0.0,
+   "g_min_dB": 11.3,
+   "filled": true,
+   "span_THz": null,
+   "criterion": "G >= 11.3 dB (entire measured range; '> 10 dB' in the source)",
+   "input_power": "-20 dBm, single channel",
+   "source_access": "full text (CC BY 4.0)",
+   "group": "69"
+  },
+  {
+   "row_id": "73",
+   "ref": "[73]",
+   "label": "Pratiwi 2026",
+   "technology": "Discrete Raman",
+   "bw_THz": 2.8,
+   "bw_THz_unc": 0.0,
+   "g_min_dB": 14.3,
+   "filled": false,
+   "span_THz": null,
+   "criterion": "operating range (no criterion in the source); gain excursion about 8 dB",
+   "input_power": "-8 dBm (companion paper)",
+   "source_access": "abstract + companion full text (Puttnam et al., JLT 43, 10371, 2025)",
+   "group": "73"
+  },
+  {
+   "row_id": "19a",
+   "ref": "[19]",
+   "label": "F. Wang 2026",
+   "technology": "TDFA",
+   "bw_THz": 8.75,
+   "bw_THz_unc": 0.0,
+   "g_min_dB": 30.0,
+   "filled": false,
+   "span_THz": null,
+   "criterion": "net gain > 30 dB",
+   "input_power": "n.s. for the dual stage (large signal implied)",
+   "source_access": "abstract only",
+   "group": "19"
+  },
+  {
+   "row_id": "78a",
+   "ref": "[78]",
+   "label": "C. Wang 2026",
+   "technology": "Doped-fiber hybrid (Bi/Er, Bi/Nd)",
+   "bw_THz": 22.7,
+   "bw_THz_unc": 0.0,
+   "g_min_dB": 20.0,
+   "filled": false,
+   "span_THz": null,
+   "criterion": "G >= 20 dB ('> 20 dB' in the title)",
+   "input_power": "n.s.",
+   "source_access": "abstract only",
+   "group": "78"
+  },
+  {
+   "row_id": "79",
+   "ref": "[79]",
+   "label": "Mikhailov 2026",
+   "technology": "Doped-fiber hybrid (Bi/Er, Bi/Nd)",
+   "bw_THz": 9.03,
+   "bw_THz_unc": 0.0,
+   "g_min_dB": 20.0,
+   "filled": false,
+   "span_THz": null,
+   "criterion": "small-signal G > 20 dB",
+   "input_power": "small signal (level n.s.)",
+   "source_access": "abstract only",
+   "group": "79"
+  }
+ ],
+ "not_plotted": [
+  {
+   "row_id": "70",
+   "ref": "[70]",
+   "reason": "Not plotted: on-off gain, not comparable with net gain. In-band pumps (1485, 1508 nm) illustrate R2-M11."
+  },
+  {
+   "row_id": "80b",
+   "ref": "[80]",
+   "reason": "Authors' own paper: confirm criterion, NF, reference plane and splitting component (power coupler or band filter) against the version of record. Not plotted (saturated operating point)."
+  },
+  {
+   "row_id": "74",
+   "ref": "[74]",
+   "reason": "Not plotted. Full text not accessible (Optica subscription). Read the ECOC paper or Sec. 4.3 of the open thesis (Aston 45108); otherwise replace by the conditions-resolved rows of [36]. PCE 28 % (input power n.s.)."
+  },
+  {
+   "row_id": "72",
+   "ref": "[72]",
+   "reason": "Not plotted: band-split with a filter gap; continuous segments not stated in the accessible material. The thesis states that the initial design covered 210 nm and was reduced to 195 nm because extended L-band EDFAs were not available; its gain/NF characterization (Fig. 6.11) is for the 195 nm grid, not for the 210 nm test of this paper."
+  },
+  {
+   "row_id": "71b",
+   "ref": "[71]",
+   "reason": "Not plotted (S-band statistics only)."
+  },
+  {
+   "row_id": "81b",
+   "ref": "[81]",
+   "reason": "Authors' own paper: complete pump powers, fiber lengths, loading and NF from the authors' copy of the version of record. Not plotted (saturated operating point)."
+  },
+  {
+   "row_id": "76b",
+   "ref": "[76]",
+   "reason": "Not plotted (minimum in-band gain not stated)."
+  },
+  {
+   "row_id": "17e",
+   "ref": "[17]",
+   "reason": "Not plotted (same amplifier and input as 17b; nearly the same interval as 17a)."
+  },
+  {
+   "row_id": "22a",
+   "ref": "[22]",
+   "reason": "Not plotted (no bandwidth at this operating point)."
+  },
+  {
+   "row_id": "22c",
+   "ref": "[22]",
+   "reason": "Not plotted (NF only)."
+  },
+  {
+   "row_id": "77b",
+   "ref": "[77]",
+   "reason": "Not plotted (coincides with 77a on the chart)."
+  },
+  {
+   "row_id": "77c",
+   "ref": "[77]",
+   "reason": "Not plotted (to keep Figure 6a legible; [36] shows the same input-power trade-off). The source abstract pairs 372 mW (+5 dBm) with 43 dB (-25 dBm): different operating points."
+  },
+  {
+   "row_id": "69b",
+   "ref": "[69]",
+   "reason": "Shown in Figure 6b. Re-derived from the digitized curve: 1465-1502.9 nm. Source conclusions quote 1460-1505 nm."
+  },
+  {
+   "row_id": "69c",
+   "ref": "[69]",
+   "reason": "Shown in Figure 6b. Re-derived (dagger): not stated in the source."
+  },
+  {
+   "row_id": "69d",
+   "ref": "[69]",
+   "reason": "Shown in Figure 6b. Re-derived from the digitized curve: 1465-1504.3 nm. Lower edge is the measurement edge."
+  },
+  {
+   "row_id": "19b",
+   "ref": "[19]",
+   "reason": "Not plotted (first stage of the same amplifier)."
+  },
+  {
+   "row_id": "78b",
+   "ref": "[78]",
+   "reason": "Not plotted (NF only)."
+  }
+ ],
+ "observations": {
+  "max_gmin_with_bw_above_9THz": "17b",
+  "max_gmin_with_bw_above_9THz_dB": 24.0,
+  "points_with_gmin_above_24dB_whose_error_bar_reaches_above_9THz": [
+   [
+    "17d",
+    8.92,
+    0.39,
+    9.31,
+    32.0
+   ]
+  ],
+  "widest_bw_with_gmin_ge_20dB": "75",
+  "points_with_gmin_ge_30dB": [
+   [
+    "36a",
+    4.53,
+    36.8
+   ],
+   [
+    "17d",
+    8.92,
+    32.0
+   ],
+   [
+    "19a",
+    8.75,
+    30.0
+   ]
+  ],
+  "open_points": [
+   [
+    "82",
+    "Taengnoi 2021"
+   ],
+   [
+    "83",
+    "Zhai 2022"
+   ],
+   [
+    "81a",
+    "G\u00fcrkaynak 2022"
+   ],
+   [
+    "66",
+    "Zhai 2023"
+   ],
+   [
+    "75",
+    "Alyshev 2025"
+   ],
+   [
+    "73",
+    "Pratiwi 2026"
+   ],
+   [
+    "19a",
+    "F. Wang 2026"
+   ],
+   [
+    "78a",
+    "C. Wang 2026"
+   ],
+   [
+    "79",
+    "Mikhailov 2026"
+   ]
+  ]
+ },
+ "worked_example_ref69": {
+  "device": "400 m Bi:germanosilicate BDFA, single stage and pass, 950 mW at 1425 nm (bidirectional) [69]",
+  "re_derived_from": "vector data of Figure 3e,f of [69] (5 nm measurement steps, linear interpolation)",
+  "statements_plotted": [
+   {
+    "key": "3dB_m20_stated_peak",
+    "label": "3-dB width, \u221220 dBm\u2020",
+    "solid": true,
+    "level_dB": 32.6,
+    "edges_nm": [
+     1465.0,
+     1474.4
+    ],
+    "width_nm": 9.4,
+    "width_THz": 1.3,
+    "basis": "re-derived from the digitized curve"
+   },
+   {
+    "key": "G_ge_20_m20",
+    "label": "G > 20 dB, \u221220 dBm",
+    "solid": true,
+    "level_dB": 20.0,
+    "edges_nm": [
+     1465.0,
+     1502.5
+    ],
+    "width_nm": 37.5,
+    "width_THz": 5.11,
+    "basis": "stated in [69]"
+   },
+   {
+    "key": "3dB_0dBm",
+    "label": "3-dB width, 0 dBm",
+    "solid": false,
+    "level_dB": 18.2,
+    "edges_nm": [
+     1465.0,
+     1505.0
+    ],
+    "width_nm": 40.0,
+    "width_THz": 5.44,
+    "basis": "stated in [69]"
+   },
+   {
+    "key": "G_ge_10_m20",
+    "label": "G > 10 dB, \u221220 dBm",
+    "solid": true,
+    "level_dB": 10.0,
+    "edges_nm": [
+     1465.0,
+     1530.0
+    ],
+    "width_nm": 65.0,
+    "width_THz": 8.69,
+    "basis": "stated in [69]"
+   }
+  ],
+  "widths_re_derived": {
+   "3dB_m20_stated_peak": {
+    "criterion": "3-dB width, -20 dBm (stated peak 35.6 dB)",
+    "level_dB": 32.6,
+    "edges_nm": [
+     1465.0,
+     1474.4
+    ],
+    "width_nm": 9.4,
+    "width_THz": 1.31,
+    "limited_by_measured_range": [
+     true,
+     false
+    ]
+   },
+   "3dB_m20_digitized_peak": {
+    "criterion": "3-dB width, -20 dBm (digitized peak)",
+    "level_dB": 32.35,
+    "edges_nm": [
+     1465.0,
+     1475.1
+    ],
+    "width_nm": 10.1,
+    "width_THz": 1.4,
+    "limited_by_measured_range": [
+     true,
+     false
+    ]
+   },
+   "G_ge_20_m20": {
+    "criterion": "G >= 20 dB, -20 dBm",
+    "level_dB": 20.0,
+    "edges_nm": [
+     1465.0,
+     1502.9
+    ],
+    "width_nm": 37.9,
+    "width_THz": 5.16,
+    "limited_by_measured_range": [
+     true,
+     false
+    ]
+   },
+   "G_ge_10_m20": {
+    "criterion": "G >= 10 dB, -20 dBm",
+    "level_dB": 10.0,
+    "edges_nm": [
+     1465.0,
+     1530.0
+    ],
+    "width_nm": 65.0,
+    "width_THz": 8.69,
+    "limited_by_measured_range": [
+     true,
+     true
+    ]
+   },
+   "3dB_0dBm": {
+    "criterion": "3-dB width, 0 dBm",
+    "level_dB": 18.21,
+    "edges_nm": [
+     1465.0,
+     1504.3
+    ],
+    "width_nm": 39.3,
+    "width_THz": 5.34,
+    "limited_by_measured_range": [
+     true,
+     false
+    ]
+   }
+  },
+  "source_stated": {
+   "G_gt_10_m20": "1465-1530 nm (65 nm)",
+   "G_gt_20_m20": "1465-1502.5 nm (37.5 nm)",
+   "3dB_0dBm": "1465-1505 nm (40 nm)",
+   "3dB_m20": "not stated"
+  },
+  "digitized_extremes_vs_source_table1": {
+   "gain_m20_dB": [
+    11.27,
+    35.35,
+    "source 11.3-35.6"
+   ],
+   "gain_0_dB": [
+    10.66,
+    21.21,
+    "source 10.6-21.2"
+   ],
+   "nf_m20_dB": [
+    5.59,
+    7.71,
+    "source 5.6-7.7"
+   ],
+   "nf_0_dB": [
+    5.93,
+    7.77,
+    "source 5.9-7.8"
+   ]
+  }
+ },
+ "checks": {
+  "max_abs_THz_column_vs_edges": 0.0048
+ },
+ "table1_raman_single_pump_band": {
+  "source": "data/raman_ssmf_gnpy.csv (default SSMF Raman gain-efficiency profile distributed with GNPy)",
+  "model": "single undepleted pump; on-off gain in dB proportional to the gain efficiency; band = contiguous interval around the profile peak in which the on-off gain is within 3 dB of its peak; edges by linear interpolation of the tabulated profile",
+  "peak_on_off_gain": {
+   "10 dB": {
+    "level_rel_to_peak_efficiency": 0.7,
+    "edges_THz_below_pump": [
+     9.263,
+     15.106
+    ],
+    "width_THz": 5.843,
+    "width_nm_at_1550nm": 46.8
+   },
+   "15 dB": {
+    "level_rel_to_peak_efficiency": 0.8,
+    "edges_THz_below_pump": [
+     10.019,
+     14.904
+    ],
+    "width_THz": 4.885,
+    "width_nm_at_1550nm": 39.1
+   },
+   "20 dB": {
+    "level_rel_to_peak_efficiency": 0.85,
+    "edges_THz_below_pump": [
+     10.502,
+     14.809
+    ],
+    "width_THz": 4.306,
+    "width_nm_at_1550nm": 34.5
+   }
+  },
+  "half_maximum_edges_THz": [
+   7.606,
+   15.534
+  ],
+  "half_maximum_width_THz": 7.928,
+  "table1_check": {
+   "row": "Raman, distributed",
+   "table1_band_THz": "4.9 (single pump, model)",
+   "computed_15dB_THz_rounded": 4.9,
+   "agrees": true
+  }
+ }
+}

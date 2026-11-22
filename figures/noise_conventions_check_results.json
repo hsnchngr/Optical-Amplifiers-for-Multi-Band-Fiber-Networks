@@ -1,0 +1,184 @@
+{
+ "eq15_nonuniform_inversion": {
+  "conditions": "card EDFA-GD91-T1, L = 10 m, 30 mW forward pump at 1480 nm, signal 1550 nm, one 30 nm ASE band (1535-1565 nm), no background loss; internal reference plane (fiber ends)",
+  "rows": [
+   {
+    "Pin_dBm": -40.0,
+    "standalone_forward_ASE_only": {
+     "G_dB": 20.50698204446736,
+     "NF_direct_dB": 4.173706875323451,
+     "NF_integral_dB": 4.173707382331841,
+     "NF_uniform_mean_inversion_dB": 4.181537646308065,
+     "NF_2nsp_input_end_dB": 4.195623978304775,
+     "n2_input": 0.7514718563991374,
+     "n2_output": 0.7455498098789759,
+     "n2_mean": 0.7501122131454403
+    },
+    "shared_solver_fwd_bwd_ASE": {
+     "G_dB": 20.44523551641636,
+     "NF_direct_dB": 4.190723033170282,
+     "NF_integral_dB": 4.190735972554168,
+     "NF_uniform_mean_inversion_dB": 4.188504518109797,
+     "NF_2nsp_input_end_dB": 4.229784628177943,
+     "n2_input": 0.746837700881448,
+     "n2_output": 0.745528995758416,
+     "n2_mean": 0.7491149206125366
+    }
+   },
+   {
+    "Pin_dBm": -20.0,
+    "standalone_forward_ASE_only": {
+     "G_dB": 20.04349068724332,
+     "NF_direct_dB": 4.1827738775510195,
+     "NF_integral_dB": 4.182774384981041,
+     "NF_uniform_mean_inversion_dB": 4.2344139610150435,
+     "NF_2nsp_input_end_dB": 4.198062334861408,
+     "n2_input": 0.7511379535182197,
+     "n2_output": 0.713250151803613,
+     "n2_mean": 0.742634335739396
+    },
+    "shared_solver_fwd_bwd_ASE": {
+     "G_dB": 19.99017341875141,
+     "NF_direct_dB": 4.198508059798584,
+     "NF_integral_dB": 4.198521068900328,
+     "NF_uniform_mean_inversion_dB": 4.240669600383607,
+     "NF_2nsp_input_end_dB": 4.229719511962661,
+     "n2_input": 0.7468464456099856,
+     "n2_output": 0.7134651082600162,
+     "n2_mean": 0.7417641402068936
+    }
+   },
+   {
+    "Pin_dBm": 0.0,
+    "standalone_forward_ASE_only": {
+     "G_dB": 11.712196830971763,
+     "NF_direct_dB": 4.803214603432446,
+     "NF_integral_dB": 4.803215023072439,
+     "NF_uniform_mean_inversion_dB": 5.50786980998878,
+     "NF_2nsp_input_end_dB": 4.435233972413554,
+     "n2_input": 0.7208284805960298,
+     "n2_output": 0.49712493531853835,
+     "n2_mean": 0.6082614179383166
+    },
+    "shared_solver_fwd_bwd_ASE": {
+     "G_dB": 11.706605329255472,
+     "NF_direct_dB": 4.806331880485888,
+     "NF_integral_dB": 4.8063446920891355,
+     "NF_uniform_mean_inversion_dB": 5.508974002611195,
+     "NF_2nsp_input_end_dB": 4.442230042621587,
+     "n2_input": 0.7199953415921136,
+     "n2_output": 0.49717363966185507,
+     "n2_mean": 0.6081717798802333
+    }
+   }
+  ]
+ },
+ "eq13_raman_integral_vs_ode": {
+  "counter_10.0dB": {
+   "S_integral": 5.3176103334665385e-19,
+   "S_ode": 5.317610372884546e-19,
+   "rel_diff": 7.412729541300678e-09
+  },
+  "counter_20.0dB": {
+   "S_integral": 4.182383025253455e-18,
+   "S_ode": 4.182383064482059e-18,
+   "rel_diff": 9.379486076710464e-09
+  },
+  "co_10.0dB": {
+   "S_integral": 6.938601427389188e-20,
+   "S_ode": 6.938601347713457e-20,
+   "rel_diff": -1.1482966910669745e-08
+  },
+  "co_20.0dB": {
+   "S_integral": 5.713540746640107e-19,
+   "S_ode": 5.713540315969445e-19,
+   "rel_diff": -7.537719270978016e-08
+  }
+ },
+ "eq16_cascade": {
+  "conditions": "80 km SSMF, counter-pumped, card RAMAN-G652, undepleted pump, ASE only (no DRB, no pump RIN, no SOA nonlinearity); amplifier noise figures 7 dB (SOA) and 5 dB (EDFA) at their input ports",
+  "rows": [
+   {
+    "Gon_dB": 0.0,
+    "NF_eq_tot_SOA_dB": 7.0,
+    "identity_rel_err_SOA": 0.0,
+    "NF_eq_tot_EDFA_dB": 5.0,
+    "identity_rel_err_EDFA": 0.0,
+    "SOA_minus_EDFA_dB": 2.0
+   },
+   {
+    "Gon_dB": 9.0,
+    "NF_eq_tot_SOA_dB": 1.6625816720638928,
+    "identity_rel_err_SOA": 9.156057063641754e-07,
+    "NF_eq_tot_EDFA_dB": 0.9116356552777166,
+    "identity_rel_err_EDFA": 9.156057063641754e-07,
+    "SOA_minus_EDFA_dB": 0.7509460167861762,
+    "pump_W": 0.2966096845022881,
+    "net_span_gain_dB": -6.200000000000003
+   },
+   {
+    "Gon_dB": 10.0,
+    "NF_eq_tot_SOA_dB": 1.2419102925015284,
+    "identity_rel_err_SOA": 1.0173397289037212e-06,
+    "NF_eq_tot_EDFA_dB": 0.5921511661789364,
+    "identity_rel_err_EDFA": 1.0173397286816765e-06,
+    "SOA_minus_EDFA_dB": 0.649759126322592,
+    "pump_W": 0.3295663161136534,
+    "net_span_gain_dB": -5.200000000000003
+   },
+   {
+    "Gon_dB": 15.0,
+    "NF_eq_tot_SOA_dB": -0.419522644670928,
+    "identity_rel_err_SOA": 1.5260099761604806e-06,
+    "NF_eq_tot_EDFA_dB": -0.7087184802887767,
+    "identity_rel_err_EDFA": 1.5260099761604806e-06,
+    "SOA_minus_EDFA_dB": 0.28919583561784873,
+    "pump_W": 0.49434947417048003,
+    "net_span_gain_dB": -0.20000000000000284
+   },
+   {
+    "Gon_dB": 20.0,
+    "NF_eq_tot_SOA_dB": -1.5316160929456966,
+    "identity_rel_err_SOA": 2.034680480766937e-06,
+    "NF_eq_tot_EDFA_dB": -1.647440464238841,
+    "identity_rel_err_EDFA": 2.034680480766937e-06,
+    "SOA_minus_EDFA_dB": 0.11582437129314438,
+    "pump_W": 0.6591326322273068,
+    "net_span_gain_dB": 4.799999999999997
+   }
+  ]
+ },
+ "raman_equivalent_NF_dB": {
+  "counter": {
+   "5": 0.2939425109798053,
+   "10": -0.31585733138647815,
+   "15": -1.0731895589530653,
+   "20": -1.7868820653801631
+  },
+  "bi": {
+   "5": -1.6478270908781567,
+   "10": -3.5957169152359265,
+   "15": -5.4668777200873855,
+   "20": -7.069889554822916
+  },
+  "co": {
+   "5": -3.7779912709154333,
+   "10": -6.813478868725306,
+   "15": -8.869201311672184,
+   "20": -10.036426299013016
+  }
+ },
+ "edfa_1480_floor": {
+  "n2_max": 0.7619047619047619,
+  "nsp_min": 1.2914798206278024,
+  "NF_min_dB": 4.121176203750513
+ },
+ "soa_chip_nf_crude": {
+  "I_A": 0.15,
+  "N": 2.576619029086833e+24,
+  "nsp_linear_gain_estimate": 1.8717008661401466,
+  "loss_factor": 1.4095762913548915,
+  "NF_chip_dB": 7.22355023414398,
+  "note": "crude estimate: n_sp = N/(N - N0) is not a band-structure value; chip reference plane, coupling loss excluded"
+ }
+}
