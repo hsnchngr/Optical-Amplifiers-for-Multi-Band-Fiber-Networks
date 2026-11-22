@@ -1,0 +1,48 @@
+Supporting Information S1: exact requests of the dataset search (run on 17 November 2026)
+
+DataCite REST API, https://api.datacite.org/dois
+Parameters common to D1-D10: resource-type-id=dataset; page[size]=100 (all hits returned on one page); fields[dois]=titles,publisher,publicationYear,rightsList,types
+The number of hits is the value of meta.total in the response.
+
+D1  query=(EDFA* OR ((erbium OR "Er-doped") AND amplifier*)) AND (gain OR "noise figure" OR transient*)        hits 21
+D2  query=(BDFA* OR ((bismuth OR "Bi-doped") AND amplifier*)) AND (gain OR "noise figure" OR transient*)       hits 25
+D3  query=(TDFA* OR ((thulium OR "Tm-doped") AND amplifier*)) AND (gain OR "noise figure" OR transient*)       hits 1
+D4  query=(PDFA* OR ((praseodymium OR "Pr-doped") AND amplifier*)) AND (gain OR "noise figure" OR transient*)  hits 2
+D5  query=(Raman AND amplif*) AND (gain OR "noise figure" OR transient*)                                       hits 23
+D6  query=("semiconductor optical amplifier" OR "semiconductor optical amplifiers") AND (gain OR "noise figure" OR transient*)   hits 14
+D7  query=(amplifier* OR EDFA*) AND ("gain transient" OR "gain transients" OR "power transient" OR "power transients" OR "add/drop" OR "add-drop" OR "channel add" OR "burst mode" OR "burst-mode" OR "gain dynamics")   hits 8
+D8  query=(EDFA* OR BDFA* OR TDFA* OR PDFA* OR "doped fiber" OR "doped fibre" OR "doped fibers" OR "doped fibres") AND ("O-band" OR "E-band" OR "S-band" OR "L-band" OR "U-band")   hits 39
+D9  query="discrete Raman" OR "distributed Raman" OR "Raman amplifier" OR "Raman amplifiers" OR "Raman amplification" OR "Raman/EDFA"   hits 78
+D10 query="semiconductor optical amplifier" OR "semiconductor optical amplifiers"   hits 28
+
+Example of an encoded request (D1):
+https://api.datacite.org/dois?query=%28EDFA%2A%20OR%20%28%28erbium%20OR%20%22Er-doped%22%29%20AND%20amplifier%2A%29%29%20AND%20%28gain%20OR%20%22noise%20figure%22%20OR%20transient%2A%29&resource-type-id=dataset&page%5Bsize%5D=100&fields%5Bdois%5D=titles,publisher,publicationYear,rightsList,types
+
+D11 (no resource-type filter; two requests; DOIs of the 18 experimental papers of Section 3.2 that have a DOI, each in upper- and lower-case spelling where they differ)
+D11a query=relatedIdentifiers.relatedIdentifier:("10.1364/OE.27.036699" OR "10.1364/oe.27.036699" OR "10.1364/OE.420995" OR "10.1364/oe.420995" OR "10.1109/JLT.2020.3033768" OR "10.1109/jlt.2020.3033768" OR "10.1007/s11082-021-03021-8" OR "10.1364/OFC.2022.Tu3E.2" OR "10.1364/ofc.2022.tu3e.2" OR "10.1364/OL.475246" OR "10.1364/ol.475246" OR "10.1002/mop.33082" OR "10.1049/icp.2023.2255" OR "10.1109/JLT.2023.3339391" OR "10.1109/jlt.2023.3339391" OR "10.1364/OL.525583" OR "10.1364/ol.525583")   hits 4
+D11b query=relatedIdentifiers.relatedIdentifier:("10.3390/s24113285" OR "10.1038/s41598-025-05507-x" OR "10.1364/OL.567880" OR "10.1364/ol.567880" OR "10.1364/OL.575125" OR "10.1364/ol.575125" OR "10.1364/OL.582110" OR "10.1364/ol.582110" OR "10.1364/OL.601498" OR "10.1364/ol.601498" OR "10.1364/OFC.2026.Tu3D.4" OR "10.1364/ofc.2026.tu3d.4" OR "10.1364/OFC.2026.Tu3D.3" OR "10.1364/ofc.2026.tu3d.3")   hits 0
+
+D12 (no resource-type filter)
+query=titles.title:("38 dB gain E-band" OR "multistage discrete Raman amplifier" OR "single-span S-C-L-band coherent transmission" OR "Extending L-band gain" OR "parallel hybrid fiber amplifier" OR "Multi-band ESCL transmission" OR "enhanced polarization insensitivity" OR "neodymium-doped fibers" OR "heterogeneous-core fibers" OR "full S-band amplification" OR "U-band discrete Raman amplifier" OR "thulium-doped fluorotellurite" OR "BDF/EDF hybrid amplifier" OR "Hybrid BiEr fiber amplifier" OR "programmable gain Raman amplifier")   hits 39
+
+Zenodo REST API, https://zenodo.org/api/records
+Parameters: q=<string of D1-D7>; type=dataset; size=25 (all hits returned on one page). The number of hits is hits.total.
+Z1 (string D1) hits 2; Z2 (D2) hits 0; Z3 (D3) hits 9; Z4 (D4) hits 2; Z5 (D5) hits 1; Z6 (D6) hits 2; Z7 (D7) hits 1
+
+Totals: 282 DataCite hits + 17 Zenodo hits = 299 hits; 231 unique DOIs (version DOIs of one deposit counted separately). Screening decisions for every DOI: si_s1_search_log.csv.
+
+Screening codes in si_s1_search_log.csv
+I    included (criteria i-iii met)
+T1   title screening: not about an optical amplifier of the three technologies, or unrelated
+T2   title screening: not a data deposit (supplementary PDF, preprint, thesis, software)
+T3   title screening: other device, use or band (laser, parametric or waveguide amplifier, pulsed or visible source, SOA used as switch or logic gate, outside 1260-1675 nm)
+F1t  criterion (i): transmission or nonlinearity-compensation experiment; amplifier gain or noise-figure data not identified
+F1s  criterion (i): simulation or model output
+F1r  criterion (i): deposit supporting a review article
+F1q  criterion (i): other quantities only
+F1n  criterion (i): content not identifiable from the metadata
+F1x  criterion (i): no data file (citation file only)
+F2   criterion (ii): available on request only
+F3   criterion (iii): band or wavelength range not stated in the record or in the abstract of the supported paper
+
+Screening sources: DataCite record metadata; landing pages of five Aston University records (00000205, 00000286, 00000587, 00000589, 00000663) and of Zenodo record 14795809; abstracts of supported papers through the OpenAlex API where the record did not state the band or the measured quantity. University of Southampton landing pages returned HTTP 403 to automated requests and were not inspected. No data file was downloaded.
